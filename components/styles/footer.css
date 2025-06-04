@@ -1,0 +1,152 @@
+/* ======== Butonul din Header ======== */
+.animatedButtonFooter {
+  position: relative;
+  color: white;
+  padding: 8px 20px;
+  line-height: 1.1;
+  overflow: hidden;
+  transition: transform 0.4s ease !important;
+  height: 30px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon, .list1 li {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.animatedButtonFooter :hover {
+  transition: border 0.5s ease-in-out;
+  border-radius: 9999px;
+}
+.animatedButtonFooter a {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+  z-index: 333;
+}
+
+.title-ftr {
+  font-size: 19rem !important; 
+  width: 120% !important; 
+  text-align: center; 
+  margin: 0 auto; 
+  line-height: 0.5;
+}
+
+/* Fix pentru alinierea pe desktop */
+.center {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.char {
+   display: inline-block;
+   will-change: contents, opacity;
+   backface-visibility: hidden;
+}
+/* If the original typeText function (with cursor) is still used for the button, keep this */
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite step-start;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* Centered list on large screens */
+@media screen and (min-width: 768px) {
+  .center {
+    position: relative;
+  }
+  
+  .center > div:nth-child(2) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .list1 {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width:750px) {
+  .Newsletter {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .socials {
+    align-self: flex-start;
+  }
+  
+  .list1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  
+  .wbftf {
+    align-self: flex-start;
+  }
+  
+  .title-ftr {
+    font-size: 12rem !important; 
+  }
+}
+
+@media screen and (max-width:650px) {
+  .socials {
+    margin-top: 1rem !important;
+    align-self: flex-start;
+  }
+  
+  .title-ftr {
+    font-size: 10rem !important; 
+  }
+  
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .list1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left !important;
+  }
+  
+  .client-email {
+    width: 100% !important;
+  }
+}
