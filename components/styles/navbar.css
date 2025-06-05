@@ -1,0 +1,503 @@
+.dock-container {
+  width: 97%;
+  position: fixed !important;
+  top: 0.7rem;
+  margin: 0 auto !important;
+  left: 1.3% !important;
+  transform: translate(-50%, -50%);
+  padding: 0.3em;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+  background-color: var(--dark-bg-color);
+  transition: none;
+  z-index: 888;
+  will-change: transform;
+}
+.nav_dash {
+  position: fixed !important;
+}
+.dock-container {
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease-out;
+}
+.navbar {
+  /* transform: translateX(0) !important; */
+}
+.navbar.hidden {
+  visibility: hidden;
+}
+.navbar.expanded {
+  height: 45px !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+/** ================= NAVBAR MAIN & CHILDREN ================== */
+.nav_links_container {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  color: #ffffff;
+}
+
+.dock {
+  position: relative;
+  display: flex;
+  justify-content: start !important;
+}
+.dock_adm {
+  position: relative;
+  left: 1.6rem !important;
+}
+
+
+/** ============ CHILDS OF dock_item ============  */
+.beta {
+  margin-left: 5rem;
+}
+.dock_nav {
+  position: relative;
+  right: 5rem;
+  min-width: 20% !important;
+  backdrop-filter: blur(10px);
+  border-radius: 1.4rem;
+}
+.dock-item {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
+  transition: border 0.75s ease-in-out, transform 0.25s ease;
+  z-index: 999 !important;
+  flex-direction: row;
+  padding-inline: 0.3rem !important;
+  margin-top: 5px;
+  cursor: pointer !important;
+}
+.dock-item .icon_big {
+  color: #bdbdbd;
+  transition: color 0.3s ease;
+  flex-shrink: 0; /* Previne redimensionarea iconiței */
+}
+.dock-item-text {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden; /* Asigură că conținutul nu depășește containerul */
+}
+.title-letter {
+  display: inline-block; /* Asigură că fiecare caracter are dimensiune fixă */
+  text-align: center; /* Centrează caracterul în spațiul lui */
+}
+.dock-item:hover .dock-item-text.md-visible,
+.dock-item:hover .dock-item-text.tablet-hover-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.dock-item-text.md-visible {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  position: static;
+  transform: none !important;
+}
+.dock-item-text.tablet-hover-visible {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  opacity: 0;
+  visibility: hidden;
+  width: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.dock-item:hover .dock-item-text.tablet-hover-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) !important;
+}
+.dock-item-link-wrap {
+  display: flex;
+  align-items: center; 
+  justify-content: center !important;
+  min-width: auto;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+}
+.dock-item-link-wrap span {
+  display: inline-block; 
+  white-space: nowrap;
+  color: #bdbdbd;
+}
+/* Asigură că iconițele și textul nu se mișcă în timpul animației */
+.animatedButton a {
+  display: flex;
+  align-items: center;
+}
+.animatedButton a > svg {
+  flex-shrink: 0;
+}
+.icon_big {
+  margin-top: -3px;
+}
+.icons {
+  margin-top: -3px; 
+}
+/** ================= BTN BG ON HOVER ================== */
+#patient_btn {
+  color: rgb(12, 12, 12);
+  border: 2px solid #272626!important;
+  z-index: 22 !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px !important; /* Menținem lățimea de 120px pentru Booking */
+}
+#adminButton {
+  width: 90px !important; /* Setăm aceeași lățime pentru Admin */
+  overflow: hidden;
+}
+
+#adminButton .animatedButton {
+  position: relative;
+  z-index: 1;
+  height: 30px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+}
+#patient_btn .animatedButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px !important;
+  width: 100%; 
+}
+
+.animatedButton a {
+  display: flex !important;
+  align-items: center;
+  white-space: nowrap;
+}
+.animatedButton a span {
+  position: relative;
+  display: inline-block;
+}
+
+
+#patient_btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter: blur(3px);
+  border-radius: 0.5rem;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+#patient_btn::after {
+  content: '';
+  position: absolute;
+  width: 110%;
+  height: 0;
+  padding-bottom: 110%;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(120deg, rgba(78, 70, 229, 0.856) 6%, rgba(90, 22, 216, 0.897) 13%, rgba(30, 5, 122, 0.863) 35%, rgba(10, 9, 9, 0.884) 75%) !important;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+#patient_btn:hover::before {
+  transform: scale3d(1.2, 1.2, 1);
+  border: none !important;
+}
+#patient_btn:hover::after {
+  transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  border: none !important;
+}
+
+#adminButton a  {
+  color: #fff;
+}
+
+
+#adminButton::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(120deg, rgba(78, 70, 229, 0.856) 6%, rgba(90, 22, 216, 0.897) 13%, rgba(30, 5, 122, 0.863) 35%, rgba(10, 9, 9, 0.884) 75%) !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+#adminButton::after {
+  content: '';
+  position: absolute;
+  width: 110%;
+  height: 0;
+  padding-bottom: 110%;
+  top: 50%;
+  left: 50%;
+  background-color:  #000;
+  border: 2px solid #272626 !important;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+#adminButton:hover::before {
+  transform: scale3d(1.2, 1.2, 1);
+}
+#adminButton:hover::after {
+  transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+}
+
+.dock-item-link-wrap:hover {
+  border: none;
+}
+
+.user_demo {
+  display: flex;
+  align-items: center !important;
+  width: 60px !important;
+}
+
+.Icons_nav {
+  display: none !important;
+}
+
+/** ================= BTN TEXT ON HOVER ================== */
+.animatedButton {
+  position: relative;
+  color: white;
+  border-radius: 1rem;
+  padding: 8px 20px;
+  line-height: 1.1;
+  overflow: hidden;
+  transition: transform 0.4s ease !important;
+  height: 30px;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.animatedButton a {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+  z-index: 222;
+}
+
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(120deg, #4f46e5 6%, #5a16d8 13%, #0a0909 45%, #242323 65%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: all 0.5s ease-in-out;
+}
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 15px;
+  opacity: 1 !important;
+  transform: translateY(30px);
+}
+.mobile-menu,
+.mobile-menu-button {
+  display: none;
+}
+.mobile-menu.open .mobile-menu-item {
+  animation: slideIn 0.5s forwards;
+}
+.mobile-menu-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+@media (max-width: 840px) {
+  .dock_nav {
+    /* left: 11%; */
+  }
+}
+  /** ================================ RESPONSIVE MENU ===============================  */
+  @media (max-width: 768px) {
+
+    .dock-container {
+      width: 97%;
+      left: 50%;
+      backdrop-filter: unset !important;
+      transform: translate(-50%, -50%);
+    }
+    .dock_nav {
+      display: none;
+    }
+    .navbar {
+      border: none !important;
+      box-shadow: none !important;
+      top: 0.7rem !important;
+      background: none !important;
+    }
+    .rsp_menbtn {
+      background-color: rgb(7, 3, 68);
+    }
+    .mobile-menu {
+      display: flex;
+      position: fixed;
+      top: 1rem !important;
+      left: 1.3%;
+      width: 97%;
+      margin: 0 auto !important;
+      height: 60vh;
+      background: linear-gradient(120deg, #4f46e5 6%, #5a16d8 13%, #0a0909 55%, #131111 85%);
+      flex-direction: column;
+      align-items: center;
+      text-align: left !important;
+      justify-content: center !important;
+      z-index: 9999;
+      padding-inline: 1rem;
+      transform: translateY(-100%);
+      transition: all 0.5s ease-in-out;
+    }
+    /*! === MENU BTNX ===  */
+    .mobile-menu-button,
+    .close-menu-button {
+      display: block !important;
+    }
+    .mobile-menu-button {
+      position: relative;
+      top: unset;
+      right: unset;
+      z-index: 999;
+    }
+    .close-menu-button {
+      position: absolute;
+      z-index: 1000;
+      right: 1rem;
+    }
+    #patient_btn,
+    .dock {
+      display: none !important;
+    } 
+    .mobile-menu.open #patient_btn,
+    .mobile-menu.open .dock {
+      display: flex !important;
+    }  
+    .mobile-controls {
+      margin-left: auto;
+      padding-right: 0.5rem;
+    }
+    #adminButton {
+      margin-right: 0.5rem;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      gap: 0.3rem;
+    }
+
+
+    .mobile-menu-item {
+      color: white;
+      width: 100%;
+      border-bottom: 1px solid grey;
+      opacity: 0;
+      transform: translateY(30px);
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    }
+
+    .nav_links_container {
+      width: 100%;
+      padding: 0 0.5rem;
+    }  
+    .dock-item {
+      width: 100%;
+      margin: 0.75rem 0;
+    }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }  
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.3); 
+      z-index: 9998;
+      display: none;
+    }
+    .mobile-menu.open + .mobile-menu-overlay {
+      display: block;
+    }
+  }

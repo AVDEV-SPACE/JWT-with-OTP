@@ -1,0 +1,56 @@
+.sticky-cards {
+    position: relative;
+    width:  100vw;
+    height: 100svh;
+    padding: 2em;
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-container {
+    position: relative;
+    width: 90%;
+    height: 85%;
+    overflow: hidden;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.card::before {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  background: linear-gradient(120deg, #420ac5 3%, #3a07b1ea 6%, #161414 40%, #181717 75%, #5a16d8ce 95%, #242323 97%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card::after {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(120deg, #420ac5 3%, #3a07b1ea 6%, #0a0909 40%, #09090a 75%, #14023d 85%, #1a0250a6 97%);
+  filter: blur(6px);
+  z-index: -1;
+}
+  @media screen and (max-width: 1000px) {
+    .cards-container {
+        width: 95%;
+    }
+  }
+
+

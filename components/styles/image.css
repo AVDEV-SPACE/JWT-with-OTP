@@ -1,0 +1,84 @@
+.img_cont {
+  margin-top: 0 !important;
+  position: relative;
+  height: 100vh; /* Full viewport height for pinning */
+}
+
+#image-component {
+  position: relative;
+}
+
+#image-sticky-wrap {
+  position: relative;
+  padding: 0;
+  height: 100vh; /* Match viewport height */
+}
+
+.image-sticky {
+  width: 70vw;
+  height: 60vh;
+  position: absolute;
+  top: 15vh; /* Centered vertically */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.image-sticky-1 {
+  z-index: 3;
+}
+
+.image-sticky-2 {
+  z-index: 2;
+}
+
+.image-sticky-3 {
+  z-index: 1;
+}
+
+.wrap_sticky1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 60vw !important;
+  position: relative; /* Ensure image positioning works */
+}
+
+.wrap_sticky1 > span {
+  max-width: 70vw !important;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.image-sticky::before {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  background: linear-gradient(120deg, #420ac5 3%, #3a07b1ea 6%, #161414 40%, #181717 75%, #5a16d8ce 95%, #242323 97%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.image-sticky::after {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(120deg, #420ac5 3%, #3a07b1ea 6%, #0a0909 40%, #09090a 75%, #14023d 85%, #1a0250a6 97%);
+  filter: blur(6px);
+  z-index: -1;
+}

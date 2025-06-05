@@ -1,0 +1,249 @@
+:root {
+    --font-family: 'Manrope', sans-serif;
+    --font-family2: 'Hedvig Letters Serif', serif;
+    --gradient-text: linear-gradient(129.97deg, #000C40 1.84%,#482acc);
+    --gradient-text2: linear-gradient(129.97deg, #d9d9da 1.84%,#000C40);
+    --gradient-bar: linear-gradient(103.22deg,#c2c2c2, #482acc);
+    
+    --color-footer :#17181d;
+    --color-blog: #042c54;
+    --color-text: #c1c0b4;
+    --color-subtext: #482acc;
+}
+
+ .gradient_bg1 {
+  background: #F0F2F0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #482acc, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #482acc, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+} 
+.gradient_bg2 {
+  background: #F0F2F0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #000C40, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #000C40, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+} 
+
+.wrapper {
+    padding-inline: 2rem !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+p {
+  @apply text-[16px] leading-5 text-neutral-300;
+}
+a {
+  color: unset;
+  text-decoration: none;
+}
+  
+/*!  === >>> LANDING PAGE COMPNTS STYLES <<< === */
+.landpage {
+  position: relative;
+}
+.img {
+  margin-top: 3rem;
+}
+.header {
+  margin-bottom: 2rem;
+}
+.icon-app {
+  position: relative;
+}
+
+
+.gradient__bg {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #482acc9a 40%, #351da3a2 60%, #131619 80%, #13161950 90%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.gradient__bg_r {
+  background: radial-gradient(circle at 95% 51%, #482acc 0%, #102b4627 19%);
+}
+
+.gradient__bg2 {
+  background:-moz-radial-gradient(circle at 5% 41%, #482acc 0%,#131619 25%);
+
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-radial-gradient(circle at 5% 41%, #482acc 0%, #131619 25%);
+
+  /* opera 11.10+ */
+  background:-o-radial-gradient(circle at 5% 41%, #482acc 0%, #131619 25%);
+
+  /* ie 10+ */
+  background:-ms-radial-gradient(circle at 5% 41%, #482acc 0%, #131619 25%);
+
+  /* global 92%+ browsers support */
+  background:radial-gradient(circle at 5% 41%, #482acc 0%, #131619 25%);
+}
+.gradient__bg_r2 {
+  background: radial-gradient(circle closest-side at end, 
+    rgba(72, 42, 204, 1) 0%, 
+    rgba(72, 42, 204, 0.7) 25%, 
+    rgba(72, 42, 204, 0.5) 50%, 
+    rgba(72, 42, 204, 0.3) 75%, 
+    rgba(19, 22, 25, 0.3) 90%, 
+    rgba(19, 22, 25, 0.5) 100%
+  );
+}
+
+
+.gradient__text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.comp-top {
+  margin-top: 1.5rem;
+}
+.section__padding_footer {
+  padding: 2rem 2rem;
+}
+
+.section__margin {
+  margin: 0 6rem;
+  margin: 0 6rem;
+}
+
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+
+.center ul li {
+  text-decoration: none;
+}
+.testimonial-card {
+  box-shadow: 0 9px 15px rgba(88, 103, 112, 0.2) !important;
+  /* box-shadow: 0 6px 7px rgba(37, 10, 134, 0.226); */
+}
+.testimonial-card {
+  @apply p-10 border border-solid border-neutral-500 rounded-3xl  w-full;
+}
+
+.border-el {
+  @apply border border-solid border-neutral-500;
+}
+
+.starlight__features-container{
+  @apply  border border-solid border-neutral-500 rounded-3xl w-full;
+}
+.faq-item  {
+  @apply border border-solid border-neutral-500 ;
+}
+
+
+  
+  @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .App {
+      height: auto;
+      overflow-x: hidden !important;
+    }
+  }
+  
+  
+  @media screen and (max-width: 900px) {
+    .App {
+      height: auto;
+      overflow-x: hidden !important;
+    }
+    .testimonial_header h1 {
+        letter-spacing: -0.04em;
+        font-size: clamp(55px, 5vw, 75px) !important;
+        line-height: 75px;
+        line-height: 1.1;
+    }
+  }
+  
+  
+  @media screen and (max-width: 700px) {
+    .section__padding {
+      padding: 3rem;
+      padding: 3rem;
+    }
+    .testimonial_header h1 {
+        letter-spacing: -0.04em;
+        font-size: clamp(55px, 5vw, 75px) !important;
+        line-height: 75px;
+        line-height: 1.1;
+    }
+  
+    .section__margin {
+      margin: 4rem;
+    }
+
+    .links {
+      width: 100%;
+    }
+    .Newsletter {
+      width: 60%!important;
+      border: 1px solid white;
+      color: white;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .links {
+      width: 100%;
+    }
+    .Newsletter {
+      width: 60%!important;
+      border: 1px solid white;
+      color: white;
+    }
+  
+  }
+  
+  /*? Iphone 14 Pro Max  */
+  @media screen and (max-width: 430px) and (max-device-height:932px) {
+ 
+  }
+  
+  /*? Samsung S20 Ultra & Galaxy A5/71  */
+  @media screen and (max-width: 425px) and (max-device-height: 915px) {
+
+  }
+  
+  
+  /*? Iphone XR screens */
+  @media screen and (max-width: 414px) and (max-device-height: 896px) {
+
+  }
+  
+  /*? Iphone 12Pro screens */
+  @media screen and (max-width: 390px) and (max-device-height: 844px) {
+
+  }
+  
+  
+  
+  
+  

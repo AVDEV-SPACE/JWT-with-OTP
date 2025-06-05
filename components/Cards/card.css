@@ -1,0 +1,249 @@
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+.sticky-cards {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-container {
+  position: relative;
+  width: 90%;
+  height: 85%;
+  overflow: hidden;
+}
+
+.about-sticky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  top: 0;
+}
+
+/* Gradient styles for about-sticky-1 */
+.card_brd_gradient1::before {
+  content: '';
+  border-radius: 0.3rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  background: radial-gradient(
+    circle at bottom left,
+    #4f46e5 6%,
+    #5a16d8 13%,
+    #0a0909 55%,
+    #181717 85%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card_brd_gradient1::after {
+  content: '';
+  border-radius: 0.3rem;
+  position: absolute;
+  inset: -3px;
+  background: radial-gradient(
+    ellipse at bottom left,
+    #2e1377 6%,
+    #5a16d8 13%,
+    rgba(10, 9, 9, 0.616) 65%,
+    rgba(10, 9, 9, 0.568) 85%
+  );
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* Gradient styles for about-sticky-2 */
+.card_brd_gradient3::before {
+  content: '';
+  border-radius: 0.3rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(144, 45, 236, 0.918) 6%,
+    rgb(101, 31, 231) 13%,
+    rgb(20, 18, 18) 65%,
+    rgba(22, 21, 21, 0.938) 85%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card_brd_gradient3::after {
+  content: '';
+  border-radius: 0.3rem;
+  position: absolute;
+  inset: -3px;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(136, 32, 233, 0.918) 6%,
+    rgb(90, 22, 216) 13%,
+    rgb(10, 9, 9) 65%,
+    rgba(10, 9, 9, 0.938) 85%
+  );
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* Gradient styles for about-sticky-3 */
+.notifbrd_gradient1::before {
+  content: '';
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  background: linear-gradient(
+    120deg,
+    #420ac5 3%,
+    #3a07b1ea 6%,
+    #161414 40%,
+    #181717 75%,
+    #5a16d8ce 95%,
+    #242323 97%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.notifbrd_gradient1::after {
+  content: '';
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    120deg,
+    #420ac5 3%,
+    #3a07b1ea 6%,
+    #0a0909 40%,
+    #09090a 75%,
+    #14023d 85%,
+    #1a0250a6 97%
+  );
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* Existing text styles */
+.wrap_sticky1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  height: 100%;
+}
+
+.sitcky-content {
+  position: relative;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card_row2 {
+  width: 70%;
+}
+
+.cards_p h3 {
+  line-height: 1.25 !important;
+  color: #fff; /* Ensure text is visible against gradient */
+}
+
+.p-desc.invisible h3 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tit1,
+.tit2 {
+  clip-path: polygon(0 3%, 100% 0, 100% 97%, 0% 100%) !important;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.div h1 {
+  clip-path: polygon(0 3%, 100% 0, 100% 97%, 0% 100%) !important;
+  font-size: clamp(55px, 4vw, 70px) !important;
+  visibility: hidden;
+  opacity: 0;
+  color: #fff; /* Ensure title is visible */
+}
+
+.div p {
+  width: 420px;
+}
+
+.content_card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.starlight__card-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.video-elm {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .cards-container {
+    width: 95%;
+  }
+
+  .card_row2 {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: 750px) {
+  .about-sticky {
+    height: 75vh;
+  }
+
+  .tit1,
+  .tit2 {
+    font-size: clamp(30px, 5vw, 40px) !important;
+  }
+
+  .div p {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .div h1 {
+    font-size: clamp(30px, 5vw, 30px) !important;
+  }
+}

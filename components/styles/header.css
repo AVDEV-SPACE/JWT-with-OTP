@@ -1,0 +1,229 @@
+/** ======== PARENT ======== */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  width: 100% !important;
+}
+.title, .char {
+  will-change: opacity, contents;
+  backface-visibility: hidden;
+  transform: translateY(0) !important;
+}
+
+.char {
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0;
+}
+.starlight__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center !important;
+  position: relative;
+  top: 5rem !important;
+  padding: 0 !important;
+}
+/** ======== TITLE & P ======== */
+.starlight__header-content {
+  width: 100% !important;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 444 !important;
+}
+.starlight__header-content .title,
+.starlight__header-content p,
+.starlight__header-content_b {
+  visibility: hidden;  
+  opacity: 0;         
+}
+.starlight__header-content h1 {
+  font-family: var(--font-family);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: left;
+  line-height: 1.3;
+}
+.starlight__header-content p {
+  width: auto !important;
+}
+.head_title {
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%) !important;
+  position: relative;
+  right: auto !important;
+  display: flex;
+  flex-direction: column !important;
+}
+.head_p {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  margin-right: auto;
+  width: auto !important;
+  line-height: 1.1 !important;
+}
+.p-desc {
+  white-space: nowrap !important;
+}
+.title-letter {
+  display: inline-block;
+  position: relative;
+  font-weight: inherit;
+  opacity: 1;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Asigurăm că titlurile sunt vizibile */
+.title {
+  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Stilul pentru spațiu */
+.title-letter:empty {
+  width: 0.5em;
+}
+/** ======== HEADER BTN / ADMIN BTN ======== */
+.starlight__header-content_b {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.starlight__header-content_b div {
+  -webkit-text-size-adjust: 100%;
+  font-family: Graphik, sans-serif;
+  font-size: 15px;  
+  --cursor-x: 684px;
+  --cursor-y: 703px;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: var(--gradient-text);
+  border: 1px solid transparent;
+  color: white;
+  border-radius: 1rem;
+  padding: 8px 20px;
+  line-height: 1.1;
+  overflow: hidden;
+  border: 1px solid #000C40;
+  position: relative;
+}
+.starlight__header-content_b div :hover {
+  transition: border 0.5s ease-in-out;
+  border-radius: 9999px;
+  border: 1px solid #e5e5e7ef;
+}
+
+
+/** ======== 3D ICONS ======== */
+.icon {
+  position: absolute;
+}
+.icon.top-left {
+  bottom: 5% !important;
+  left: 36%;
+  rotate: -195deg !important;
+}
+.icon.bottom-right {
+  bottom: -6% !important;
+  right: 8%;
+}
+
+.top-left,
+.bottom-right {
+opacity: 0;
+transform: translateY(60px); 
+visibility: hidden;
+}
+
+.top-left.animate,
+.bottom-right.animate {
+opacity: 1;
+transform: translateY(0);
+visibility: visible;
+}
+
+
+/** ================ >>>> XLARGE SCREENS <<<< ==============  */
+@media screen and (max-width: 1250px) {
+  .starlight__header {
+      display: flex;
+      flex-direction: row;
+      background-color: var(--color-bg);
+      position: relative;
+      top: 9%;
+  }
+  .starlight__header-content {
+      margin: 0 0 3rem;
+  }
+
+  .icon {
+    position: absolute;
+  }
+
+}
+/** ================ >>>> LARGE SCREENS <<<< ==============  */
+
+@media screen and (max-width: 950px) {
+
+  .starlight__header-content p {
+      font-size: 16px;
+      line-height: 24px;
+  }
+  
+  .icon {
+    position: absolute;
+  }
+
+}
+/** ================ >>>> MEDIUM SCREENS <<<< ==============  */
+@media screen and (max-width: 750px) {
+.head_title {
+  margin-bottom: 0.35rem;
+}
+
+.starlight__header-content p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.icon {
+  position: absolute;
+}
+
+}
+
+@media screen and (max-width: 490px) {
+.starlight__header {
+    position: relative;
+    top: 1rem;
+}
+.starlight__header-content h1 {
+}
+.starlight__header-content p {
+    font-size: 18px;
+    line-height: 20px;
+    width: 90%;
+}
+
+.icon {
+  position: absolute;}
+
+}

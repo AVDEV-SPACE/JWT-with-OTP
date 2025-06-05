@@ -1,0 +1,267 @@
+  .starlight__features {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    margin-top: 11rem;
+  }
+
+  .starlight__features-heading {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+  }
+  .nowrap {
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: row; 
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+  }
+  .starlight__features-heading p {
+    width: 600px;
+    text-align: left !important;
+  }
+
+  .features {
+    gap: 1rem !important;
+    margin-top: 1rem;
+  }  
+  .notif {
+    position: relative !important;
+    height: 230px;
+  }
+  .starlight__features-heading {
+    height: 9rem;
+  }
+  .notif_wrap {
+    row-gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .s_slots {
+    right: 5rem;
+  }
+  .slots {
+    margin-right: 0.5rem;
+  }
+  .sms_notif {
+    rotate: 70deg;
+    top: -5rem !important;
+    right: 2rem !important;
+  }
+  video {
+    box-shadow: rgba(117, 117, 117, 0.212) 3px 3px 3px 0px !important;
+  }
+  /** ================  Gradient Shadows  ================   */
+  .char, .typing-char {
+    display: inline-block;
+    will-change: contents, opacity;
+    backface-visibility: hidden;
+  }
+  .p-desc p {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .ac-title h1, .cards_tit {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .slots {
+    margin-top: 4px;
+  }
+  .starlight__features-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0.3rem 0.5rem;
+    gap: 0.4rem;
+    width: 100%;
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    width: 100% !important;
+    position: relative;
+  }
+  .content {
+    width: 100%;
+    z-index: 10;
+    line-height: 1 !important;
+  }
+  .cards_tit {
+    visibility: hidden;
+    color: white;
+    z-index: 10;
+  }
+
+  .md\:text-left {
+    text-align: left;
+  }
+  
+  .card-content img {
+    display: block;
+  }
+  .img-card {
+    position: absolute;
+    left: 5%;
+    width: 150px;
+    height: 150px;
+  }
+  .img-card1 {
+    position: absolute;
+    top: -320% !important;
+    left: -15%;
+    width: 130px;
+    height: 150px;
+  }
+  .img-card2 {
+    position: absolute;
+    right: -9%;
+    top: 455% !important;
+    width: 130px;
+    height: 150px;
+  }
+  .img-card {
+    color: #6344ec;
+  }
+
+
+  @media screen and (max-width: 1100px) {
+    #features {
+
+    }
+    .starlight__features-container {
+      min-width: auto !important;
+    }
+    .notif {
+      width: 100% !important;
+    }
+    .img4 img{
+      height: 70%;
+      padding: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    #features {
+
+    }
+    .notif {
+      height: 230px !important;
+      width: 100% !important;
+    }
+    .img2 {
+      left: 0;
+      height: 150px !important; 
+      position: relative;
+    }
+    .img2 img {
+      height: 100px !important;
+    }
+    .img3 img{
+      width:auto;
+      height: 100%;
+      object-fit: cover;
+    }
+    .content {
+      width: 100%;
+      max-height: none;
+      line-height: 1.1;
+      text-align: left; 
+    }
+  }
+  @media screen and (max-width: 768px) { 
+    .features {
+      grid-template-columns: 1fr !important; 
+      width: 97vw !important;
+      gap: 1rem !important;
+      height: auto;
+    }
+    .starlight__features-heading {
+    }
+    .starlight__features-container {
+      height: 250px !important;
+      width: 100% !important;
+    }
+    .nowrap {
+      flex-direction: column; 
+    }
+    #features {
+      grid-template-columns: 1fr !important; 
+      gap: 0 !important;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .starlight__features-heading {
+      position: relative!important;
+      width: 100%;
+      text-align: left; 
+    }
+    .starlight__features-heading  p {
+      width: auto !important;
+      text-align: left; 
+    }
+
+    .starlight__features-container {
+      flex-direction: column; 
+      align-items: center;
+      text-align: center;
+      margin-top: 1rem; 
+      min-width: auto;
+      border-radius: 1rem;
+      box-sizing: border-box;
+      overflow: hidden;   
+    }
+    .starlight__features-container img {
+      width: 100%; 
+      height: auto; 
+    }    
+    .starlight-container__feature p {
+      min-height: 0; 
+      line-height: 1.5; 
+    }
+
+  }
+
+  /*? Iphone 14 Pro Max  */
+  @media screen and (max-width: 430px) and (max-device-height:932px) {
+    .starlight__features {
+      position: relative;
+      top: 4rem;
+    }
+    .feat-wrapper {
+      display: grid;
+      grid-template-columns:  (1fr);
+      justify-content: center; 
+    }
+    .starlight__features-container {
+
+    }
+  }
+
+  /*? Samsung S20 Ultra & Galaxy A5/71  */
+  @media screen and (max-width: 412px) and (max-device-height: 915px) {
+    .starlight__features {
+      position: relative;
+      top: 3rem;
+    }
+  }
+
+  /*? Iphone XR screens */
+  @media screen and (max-width: 414px) and (max-device-height: 896px) {
+
+
+  }
+
+  /*? Iphone 12 Pro  */
+  @media screen and (max-width: 390px) and (max-device-height:844px) {
+
+  }
+
+  /*? Iphone SE screens */
+  @media screen and (max-width: 414px) and (max-device-height: 896px) {
+
+  }

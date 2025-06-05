@@ -1,0 +1,9 @@
+export { default as Blog } from './blog/Blog';
+export { default as Payments } from './payments/Payments';
+export { default as Footer } from './footer/Footer';
+export { default as Header } from './header/Header';
+export { default as Image } from './Image/Image';
+export { default as Card } from './Cards/Card';
+export { default as Starlight } from './starlight/Starlight';
+export { default as Fewthings } from './fewthing/Fewthings';
+export { default as Faq } from './Faq/Faq';

@@ -1,0 +1,997 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --font-family: "Michroma", serif !important;
+  --font-family2: 'Hedvig Letters Serif', serif;
+  --gradient-text: linear-gradient(129.97deg, #7a24c0 1%,#000C40,#431aa3);
+  --gradient-text2: linear-gradient(129.97deg, #482acc 2%, #0d0d0ee0 45%) !important;
+  --gradient-text3: linear-gradient(129.97deg,  #0d0d0ee0 55%, #482acc 85%) !important;
+  --gradient-bar: linear-gradient(103.22deg,#c2c2c2, #482acc);
+  
+  --color-footer :#17181d;
+  --color-blog: #042c54;
+  --color-text: #c1c0b4;
+  --color-subtext: #482acc;
+}
+
+body {
+  background-color:  #080808 !important;
+  padding: 0;
+}
+p {
+  @apply text-neutral-400 !important;
+ }
+h1 {
+  font-family: "Michroma", serif !important;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+h2 {
+  color: white;
+}
+h3 {
+  color: white;
+}
+.home_pg {
+  padding-inline: 1.25rem !important;
+}
+.title {
+  font-size: clamp(55px, 4vw, 70px) !important;
+  clip-path: polygon(0 3%, 100% 0, 100% 97%, 0% 100%) !important;
+}
+.faq-text p, .starlight__features p, .testimonial-card p {
+  line-height: 1.25; 
+  margin: 0;
+  padding: 0;
+}
+.test_title.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.p-desc {
+  line-height: 1.1 !important;
+  clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%) !important;
+}
+.p-desc.invisible p {
+   opacity: 0;
+   visibility: hidden;
+  line-height: 1 !important; 
+}
+.hide {
+  visibility: hidden;
+}
+.border_unv {
+  @apply border border-neutral-800 !important;
+}
+.shadow {
+  box-shadow:  linear-gradient(120deg, #4f46e5 6%, #5a16d8 13%, #0a0909 45%, #242323 65%) !important; 
+}
+.notif {
+  @apply rounded-lg;
+}
+.bg_cards {
+  background: var(--gradient-text2) !important;
+}
+.bg_cards3 {
+  background: var(--gradient-text3) !important;
+}
+.sms_notif_vid {
+  background-color: linear-gradient(170.97deg, #000C40 1.84%,#482acc);;
+}
+.sms_notif {
+  border-top: 2px solid  rgba(88, 103, 112, 0.555);
+  border-left: 1px solid rgba(88, 103, 112, 0.555);
+  border-right: 4px solid  rgba(88, 103, 112, 0.555);
+  border-top: 1px solid rgba(88, 103, 112, 0.26);
+}
+.sms_notif video {
+  width: 100% !important;
+}
+
+.charts {
+  position: relative;
+  z-index: 50 !important;
+  height: 360px;
+  @apply bg-black/90;
+  border-radius: 0.5rem !important;
+}
+.pages {
+  @apply border border-neutral-950;
+}
+
+
+/** ====================== SCHEDUELED HOURS =================  */
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item.bg-green-500 {
+  background-color: #10b3b9;
+  color: white;
+}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item.bg-green-500:hover {
+  background-color: #10b3b9;
+}
+
+.date-picker {
+  width: 100%;
+}
+.date-picker input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  color: inherit;
+}
+.booked-time-slot {
+  color: #999 !important;
+  background-color: #f0f0f0 !important;
+  text-decoration: line-through !important;
+  cursor: not-allowed !important;
+}
+.highlighted-day {
+  background-color: #e6f3ff !important;
+  color: #2684ff !important;
+}
+.custom-calendar {
+  z-index: 50;
+}
+.custom-popper {
+  z-index: 40;
+}
+.nav_gradient1 {
+  border-radius: 1.4rem;
+}
+.nav_gradient1::before {
+  content: "";
+  border-radius: 1.4rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  background: radial-gradient(ellipse at bottom center, #4f46e5 6%, #5a16d8 13%, #272626 45%, #272626 65%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+.nav_gradient1::after {
+  content: "";
+  border-radius: 1.4rem;
+  position: absolute !important;
+  inset: -1px;
+  background: radial-gradient(ellipse at bottom center, rgba(13, 8, 112, 0.562) 6%, rgba(84, 18, 206, 0.521) 13%, rgba(10, 9, 9, 0.925) 45%,  #000000e3 65%) !important;
+  filter: blur(6px);
+  z-index: 1!important;
+}
+/** ================ Gradient Borders ===================  */
+
+/** ================ Circular Gradient Borders ===================  */
+.notifbrd_gradient1, .notifbrd_gradient2, .notifbrd_gradient3, .pending_gradient2 {
+  position: relative;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.notifbrd_gradient1::before {
+  content: "";
+  border-radius: 0.3rem !important;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  background: radial-gradient(circle at bottom left, #2e1377 6%, #5a16d8 13%, 
+  #0a0909 55%, #181717 85%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.notifbrd_gradient2::before {
+  content: "";
+  border-radius: 0.3rem !important;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  /* Changed to match original linear direction (-405deg) which was bottom-left to top-right */
+  background: radial-gradient(circle at top left, #4f46e5 6%, #5a16d8 13%, 
+  #0a0909 55%, #181717 85%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.notifbrd_gradient3::before {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  /* Gradient radial circular cu centrul în stânga sus */
+  background: radial-gradient(circle at top left, #c50ac53b  10%, #3a07b1ad 30%, 
+  rgba(10, 9, 9, 0.616) 40%, rgba(10, 9, 9, 0.568)70%, #420ac5ad 80%, #3a07b1e7 90%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+.notifbrd_gradient3::after {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute !important;
+  inset: -15px;
+  /* Gradient radial circular cu centrul în stânga sus (ajustat pentru efectul de blur) */
+  background: radial-gradient(ellipse at bottom right,  #5f0bbea1  12%,
+  #5507afa1   32%, rgba(10, 9, 9, 0.616) 55%, rgba(10, 9, 9, 0.568) 85%) !important;
+  filter: blur(6px);
+  z-index: -1 !important;
+}
+
+.notifbrd_gradient5::before {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  /* Gradient radial circular cu centrul în stânga sus */
+  background: radial-gradient(circle at top left, #c50ac53b  10%, #3a07b1ad 30%, 
+  rgba(10, 9, 9, 0.616) 40%, rgba(10, 9, 9, 0.568)70%, #420ac5ad 80%, #3a07b1e7 90%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+.notifbrd_gradient5::after {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute !important;
+  inset: 1px;
+
+  filter: blur(6px);
+}
+
+
+.pending_gradient2::before {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: 0;
+  padding: 0.6px;
+  /* Gradient radial circular cu centrul în stânga sus */
+  background: radial-gradient(ellipse at bottom right,   #5507afa1   2%, #aa0fe785 13%,
+   rgba(36, 34, 34, 0.911) 55%, rgba(29, 26, 26, 0.808) 85%) !important;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 2;
+}
+.pending_gradient2::after {
+  content: "";
+  border-radius: 0.5rem;
+  position: absolute !important;
+  inset: -15px;
+  background: radial-gradient(ellipse at bottom right,   #9008c585    2%, #aa0fe785 13%,
+   rgba(10, 9, 9, 0.616) 55%, rgba(10, 9, 9, 0.568) 85%) !important;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  filter: blur(6px);
+  z-index: -1 !important;
+}
+
+/** ================  Circular Gradient Shadows  ================   */
+.notifbrd_gradient1::after {
+  content: "";
+  border-radius: 0.3rem !important;
+  position: absolute !important;
+  inset: -15px;
+  background: radial-gradient(ellipse at bottom left, #2e1377 6%, #5a16d8bb 13%, 
+  rgba(10, 9, 9, 0.616) 65%, rgba(10, 9, 9, 0.568) 85%) !important;
+  filter: blur(6px);
+  z-index: -1 !important;
+}
+
+.notifbrd_gradient2::after {
+  content: "";
+  border-radius: 0.3rem !important;
+  position: absolute !important;
+  inset: -15px;
+  background: radial-gradient(ellipse at top left, rgba(115, 45, 243, 0.712) 6%, 
+  rgba(90, 22, 216, 0.712) 13%, rgba(10, 9, 9, 0.616) 65%, rgba(10, 9, 9, 0.568) 85%) !important;
+  filter: blur(6px);
+  z-index: -1 !important;
+}
+
+
+
+/* Optional: You can adjust the gradient position by changing the circle position */
+/* For example, to position the gradient in the top-left corner: */
+.notifbrd_gradient2.top-left::before, .notifbrd_gradient2.top-left::after {
+  background: radial-gradient(circle at top left, #4f46e5 6%, #5a16d8 13%, 
+  #0a0909 55%, #181717 85%);
+}
+
+
+
+
+.pending_gradient2::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 0.5rem;
+  background: l6near-gradient(180deg, rgba(79, 70, 229, 0.3) 60%, rgba(22, 83, 216, 0.3) 75%, rgba(3, 8, 54, 0.3) 95%, rgba(36, 35, 35, 0.3) 97%);
+  filter: blur(8px);
+  z-index: -1;
+}
+
+
+@layer utilities {
+  .admin span {
+    @apply text-neutral-400 !important;
+  }
+
+  .footer p {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: var(--font-family);
+    line-height: 1; 
+   }
+
+  .image-shadow {
+    position: relative;
+    overflow: hidden;
+  }
+  .image-shadow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%; 
+    height: 100% ;
+    background: radial-gradient(circle at left, #131619 30%, transparent 70%) no-repeat,
+                linear-gradient(to right, #131619 17%, rgba(45, 47, 48, 0) 100%);
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .forms {
+    background-color: #0d0d0e9d;
+  }
+
+/** =========================== >>>>> FOOOTER STYLES <<<<< ======================*/
+.social-icon {
+  width: 2rem; 
+  height: 2rem; 
+}
+input::placeholder {
+  @apply text-neutral-300 !important;
+}
+.Newsletter input{
+  @apply border border-neutral-800 !important;
+}
+.Newsletter.animatedButtonFooter {
+  background: var(--gradient-text);
+  border: 1px solid #482acc;
+}
+
+.footer .list1 li,
+.footer .list2 li,
+.footer .desc-text-div1,
+.footer .text1-1,
+.footer .text1-2 {
+  transform: translateY(20px);
+}
+/** =========================== >>>>>  ADMIN SECTION  <<<<< ======================*/
+ body::-webkit-scrollbar  {
+    display: none !important;
+}
+.admin-btn {
+  display: flex;
+  align-items: center;
+  background: var(--gradient-text);
+  padding: 0.5rem 1rem;
+  border: 1px solid #482acc;
+}
+.scheduel_modal {
+  z-index: 999 !important;
+  border-radius: 0.5rem !important;
+}
+.admin-log span{
+  color: white !important;
+}
+.head_statistics {
+  margin-top: 6rem !important;
+}
+
+/** =========================== >>>>>  MAIN COLORS FOR TABLE  <<<<< ======================*/
+.stat-btn {
+  background: linear-gradient(120deg, rgba(78, 70, 229, 0.904) 6%, rgba(90, 22, 216, 0.842) 13%, rgba(30, 5, 122, 0.61) 35%, rgba(10, 9, 9, 0.507) 75%);
+  border: 1px solid #482acc;
+}
+.stat-btn-faq {
+
+}
+.shad-primary-btn {
+  position: relative;
+  border-radius: 5px;
+  background: var(--gradient-text);
+  color: white;
+  padding: 8px 20px !important;
+  line-height: 1.1;
+  overflow: hidden;
+  transition: background 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shad-primary-btn {
+  @apply text-white !important;
+}
+.shad-primary-btn p {
+  color: white !important;
+}
+.shad-primary-btn p {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  color: white;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+.bg-table-head {
+  background: var(--gradient-text);
+}
+.with-linear-gradient {
+  height: 2px;
+}
+/** =============== >>>>> LENIS SCROLLBAR STYLES  <<<< ===========================*/
+body::-webkit-scrollbar {
+  display: none !important;
+}
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+/** ============== >>>>> TLWND STYLES <<<<<< ================  */
+.sidebar {
+  @apply remove-scrollbar w-full max-w-72 flex-col overflow-auto bg-black-800 px-7 py-10;
+}
+
+.left-sidebar {
+  @apply hidden lg:flex;
+}
+
+.right-sidebar {
+  @apply hidden xl:flex;
+}
+
+.clip-text {
+  @apply bg-clip-text text-transparent;
+}
+
+.bg-image {
+  @apply bg-black-900 bg-light-rays bg-cover bg-no-repeat;
+}
+
+.header {
+  @apply text-32-bold md:text-36-bold;
+}
+
+.sub-header {
+  @apply text-18-bold md:text-24-bold;
+}
+
+.container {
+  @apply relative flex-1 overflow-y-auto px-[5%];
+}
+
+.sub-container {
+  @apply mx-auto flex size-full flex-col;
+}
+
+.side-img {
+  @apply hidden h-full object-cover md:block;
+}
+
+.copyright {
+  @apply text-14-regular text-center text-dark-600 ;
+}
+
+/*? ==== >> SUCCESS */
+.success-img {
+  @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
+}
+
+.request-details {
+  @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-4 md:w-fit md:flex-row;
+}
+
+/*? ==== >> ADMIN */
+.admin-header {
+  @apply sticky top-3 z-20 mx-2 flex items-center justify-between ;
+}
+
+.admin-main {
+  @apply flex flex-col items-center h-auto space-y-4  pb-12 xl:space-y-4;
+}
+.admin-main {
+  margin-top: 7rem !important;
+}
+.admin-stat {
+  @apply flex flex-col w-full h-auto justify-between gap-2 sm:flex-row xl:gap-5;
+}
+
+/*? ==== >> FORM */
+.shad-select-content {
+  background-color: rgba(0, 0, 0, 0.8) !important; /* Fundalul general al dropdown-ului, negru transparent */
+  border: 1px solid var(--dark-500); /* Bordura, dacă este necesar */
+  color: white !important; /* Textul implicit al opțiunilor este alb */
+}
+
+/* Stiluri pentru elementele individuale din dropdown (SelectItem) */
+.shad-select-content .shad-select-item {
+  color: white; /* Textul opțiunilor în stare normală */
+  background-color: transparent; /* Asigură că nu există un fundal nedorit */
+  /* padding, etc. */
+}
+
+/* Stiluri pentru elementele din dropdown la HOVER sau FOCUSED (SELECTATE VIZUAL) */
+/* ACEASTA ESTE SECȚIUNEA CRUCIALĂ pentru a face fundalul alb și textul negru */
+.shad-select-content .shad-select-item[data-state='active'],
+.shad-select-content .shad-select-item[data-highlighted] {
+  background-color: white !important; /* Fundalul elementului la hover/selectare devine ALB */
+  color: black !important; /* Textul elementului la hover/selectare devine NEGRU, pentru vizibilitate pe fundal alb */
+  /* Poți adăuga și alte stiluri, cum ar fi border-radius sau umbra */
+}
+
+/* Stilurile pentru checkbox-uri */
+.shad-checkbox[data-state='checked'] {
+  background-color: white !important; /* Fundalul checkbox-ului (pătratul) devine alb */
+  border-color: white !important; /* Bordura checkbox-ului devine albă */
+}
+.shad-checkbox[data-state='checked'] svg {
+  color: #000 !important; /* Culoarea iconiței de verificare (bulina) devine neagră */
+}
+
+/* Stiluri pentru grupul radio (male/female) */
+.radio-group {
+  @apply flex h-full items-center gap-2 rounded-md border border-dark-500 bg-dark-400 p-3;
+}
+.radio-group-item[data-state='checked'] {
+  background-color: white !important; /* Fundalul elementului selectat devine alb */
+  border-color: white !important; /* Bordura elementului selectat devine albă */
+}
+.radio-group-item[data-state='checked']::before,
+.radio-group-item[data-state='checked'] .radio-indicator {
+  background-color: black !important; /* Culoarea bulinei devine neagră */
+}
+
+.checkbox-label {
+  @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+}
+
+/*? ==== >> File Upload */
+.file-upload {
+  @apply text-12-regular flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+}
+
+.file-upload_label {
+  @apply flex flex-col justify-center gap-2 text-center text-dark-600;
+}
+
+/*? ==== >> Stat Card */
+.stat-card {
+  @apply flex flex-1 flex-col gap-3 relative rounded-md p-4 ;
+}
+.stat-card,
+.charts,
+.data-table {
+  backdrop-filter: blur(30px);
+}
+
+/*? ==== >> Status Badge */
+.status-badge {
+  @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
+}
+
+/*?  ==== >> DataTable */
+.data-table {
+  @apply z-10 w-full overflow-hidden rounded-2xl border;
+}
+
+.table-pagination {
+  @apply flex w-full items-center justify-between  border-t border-neutral-500 space-x-2 p-4;
+}
+
+/*? ===== >> ALIGNMENTS */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+/*? ==== >> TYPOGRAPHY */
+.text-36-bold {
+  @apply text-[36px] leading-[40px] font-bold;
+}
+
+.text-24-bold {
+  @apply text-[24px] leading-[28px] font-bold;
+}
+
+.text-32-bold {
+  @apply text-[32px] leading-[36px] font-bold;
+}
+
+.text-18-bold {
+  @apply text-[18px] leading-[24px] font-bold;
+}
+
+.text-16-semibold {
+  @apply text-[16px] leading-[20px] font-semibold;
+}
+
+.text-16-regular {
+  @apply text-[16px] leading-[20px] font-normal;
+}
+
+.text-14-medium {
+  @apply text-[14px] leading-[18px] font-medium;
+}
+
+.text-14-regular {
+  @apply text-[14px] leading-[18px] font-normal;
+}
+
+.text-12-regular {
+  @apply text-[12px] leading-[16px] font-normal;
+}
+
+.text-12-semibold {
+  @apply text-[12px] leading-[16px] font-semibold;
+}
+
+/*? ==== >>=  SHADCN OVERRIDES */
+
+
+.shad-danger-btn {
+  @apply bg-red-700 text-white !important;
+}
+
+
+.shad-gray-btn {
+  @apply  cursor-pointer text-white !important;
+}
+
+.shad-input-label {
+  @apply text-14-medium text-dark-700 !important;
+}
+
+.shad-input {
+  @apply bg-black/80 rounded-md placeholder:text-dark-600 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+}
+
+.shad-input-icon {
+  @apply  placeholder:text-dark-600 border_unv h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+}
+
+.shad-textArea {
+  @apply  bg-transparent placeholder:text-dark-600 border_unv focus-visible:ring-0 focus-visible:ring-offset-0 rounded-md !important;
+}
+
+.shad-combobox-item {
+  @apply data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 !important;
+}
+
+.shad-combobox-trigger {
+  @apply h-11 !important;
+}
+
+.shad-select-trigger {
+  @apply bg-transparent  placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
+}
+
+.shad-select-content {
+  @apply bg-black/80 border border-dark-500 !important;
+}
+
+.shad-checkbox[data-state='checked'] {
+  background-color: white !important; /* Fundalul checkbox-ului (pătratul) devine alb */
+  border-color: white !important; /* Bordura checkbox-ului devine albă */
+}
+/* Bulina (indicatorul de verificare) din interiorul checkbox-ului */
+.shad-checkbox[data-state='checked'] svg {
+  color: #000 !important; /* Culoarea iconiței de verificare (bulina) devine neagră pentru a fi vizibilă pe fundal alb */
+}
+
+
+
+.shad-dialog {
+  @apply bg-black/90 border-dark-500 p-6 w-[90vw] max-w-[600px] !important;
+}
+
+
+@media (min-width: 640px) {
+  .calendar-wrapper {
+    @apply flex flex-row gap-4;
+  }
+}
+@media (max-width: 639px) {
+  .calendar-wrapper {
+    @apply flex flex-col gap-4;
+  }
+}
+
+.shad-dialog {
+  box-shadow: 0 9px 15px rgba(88, 103, 112, 0.2);
+}
+
+.shad-dialog button {
+  @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+}
+
+.shad-error {
+  @apply text-red-400 !important;
+}
+
+.shad-table {
+  @apply rounded-lg overflow-hidden !important;
+}
+
+.shad-table-row-header {
+  @apply text-light-200 hover:bg-transparent !important;
+}
+.border {
+  @apply  border-neutral-800 ;
+}
+.shad-table-row {
+  @apply text-light-200 !important;
+}
+.border-table-row {
+  @apply border-b border-neutral-800;
+}
+
+.shad-otp {
+  @apply w-full flex justify-between !important;
+}
+
+.shad-otp-slot {
+  @apply text-36-bold justify-center flex border border-dark-500 rounded-lg size-16 gap-4 !important;
+}
+
+.shad-alert-dialog {
+  @apply space-y-4 bg-dark-400 border-dark-500 outline-none !important;
+}
+
+.shad-sheet-content button {
+  @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+}
+
+/*? ==== >>  REACT PHONE NUMBER INPUT OVERRIDES */
+.input-phone {
+  @apply mt-2 h-11 rounded-full px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
+}
+
+/*? ==== >>  REACT DATE PICKER OVERRIDES */
+.date-picker {
+  @apply overflow-hidden border-transparent w-full placeholder:text-dark-600  h-11 text-14-medium rounded-full px-3 outline-none !important;
+}
+}
+
+/*? ==== >>  REACT-DATEPICKER OVERRIDES */
+.react-datepicker-wrapper.date-picker {
+  display: flex;
+  align-items: center;
+}
+
+.react-datepicker,
+.react-datepicker__time,
+.react-datepicker__header,
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker-time__header {
+  background-color: #1a1d21 !important;
+  border-color: #363a3d !important;
+  color: #abb8c4 !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker-time__header {
+  color: #ffffff !important;
+}
+
+.react-datepicker__triangle {
+  fill: #1a1d21 !important;
+  color: #1a1d21 !important;
+  stroke: #1a1d21 !important;
+}
+
+.react-datepicker__time ul{
+  margin-left: 0.5rem !important;
+  text-align: center;
+}
+.react-datepicker__time-list-item {
+  border-radius: 9px;
+  padding-inline: 0.3rem !important;
+}
+.react-datepicker__time-list-item li {
+  border-radius: 9px;
+}
+
+.react-datepicker__time-list-item:hover {
+  background-color: #363a3d !important;
+}
+
+.react-datepicker__input-container input {
+  background-color: #1a1d21 !important;
+  width: 100%;
+  outline: none;
+}
+
+.react-datepicker__day--selected {
+  background-color: #482acc !important;
+  color: #ffffff !important;
+  border-radius: 9px;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: #482acc !important;
+}
+
+.react-datepicker__time-container {
+  border-left: 1px solid #363a3d !important;
+}
+
+.react-datepicker__time-list-item {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/*? ==== >>=  REACT PHONE NUMBER INPUT OVERRIDES */
+.PhoneInputInput {
+  outline: none;
+  margin-left: 4px;
+  background: #1a1d21;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.PhoneInputInput::placeholder {
+  color: #1a1d21;
+}
+
+@media screen and (max-width:990px) {
+  .landpage {
+  }
+}
+@media screen and (max-width: 768px) { 
+  .home_pg {
+    padding-inline: 0.5rem !important;
+  }
+  .title {
+    font-size: clamp(45px, 5vw,55px) !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+    line-height: 1.3 !important;
+    }
+  }
+@media screen and (max-width:500px) {
+  .title {
+    font-size: clamp(35px, 5vw, 45px) !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+    line-height: 1.4 !important;
+    }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/*---break---  */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

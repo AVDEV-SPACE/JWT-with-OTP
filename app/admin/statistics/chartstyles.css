@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --chart-2: linear-gradient(129.97deg, #000C40 1.84%,#482acc); /* sau orice altă culoare */
+    --bg-neutral-300: #ccc;
+    --circle-outline: hsl(0, 0%, 53%);
+    --foreground: hsl(213, 9%, 57%); 
+    --text-muted: hsl(210, 10%, 50%);
+  }
+  
+  
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 221.2 83.2% 53.3%;
+    --chart-1: 221.2 83.2% 53.3%;
+    --chart-2: hsl(241, 76%, 39%) !important; 
+    --chart-3: 216 92% 60%;
+    --chart-4: 210 98% 78%;
+    --chart-5: 212 97% 87%;
+    }
+}
+/** ===== >>> animare culoare cerc <<< ===== */
+
+.stats_wrap {
+  margin-top: 8rem !important;
+}
+.chart-container {
+}
+.chart-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto !important;
+  box-shadow: 0 9px 15px rgba(88, 103, 112, 0.2) !important;
+}
+@keyframes colorChange {
+  0% { fill: var(--chart-2); }
+  100% { fill: var(--chart-3); }
+}
+
+.radial-bar {
+  fill: var(--chart-neutral); /* Culoare neutră inițială */
+  animation: colorChange 1s infinite alternate;
+}
+.radial-bar-animated {
+  animation: colorChange 1s infinite alternate;
+  transition: fill 1s ease-in-out; /* Tranziție a culorii */
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
