@@ -8,7 +8,7 @@ import { TbBookmarkQuestion } from 'react-icons/tb';
 import { LuCodesandbox } from 'react-icons/lu';
 import { TbCalendarUser } from "react-icons/tb";
 import { gsap } from 'gsap';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import '../styles/navbar.css';
 import PasskeyModal from '../PasskeyModal';
 
@@ -18,11 +18,7 @@ const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#
 
 const shuffleText = (element, originalText) => {
     if (!element) return;
-    
-    // Salvăm textul original pentru a-l folosi la final
     const originalContent = originalText;
-    
-    // Creăm un container pentru a ține toate caracterele
     element.innerHTML = '';
     const maxIterations = 6;
     const iterationDelay = 20;
@@ -31,28 +27,24 @@ const shuffleText = (element, originalText) => {
         for (let i = 0; i < originalContent.length; i++) {
             const span = document.createElement('span');
             span.classList.add('title-letter');
-            span.style.display = 'inline-block'; // Asigură că fiecare caracter are dimensiunea fixă
-            span.style.width = 'auto'; // Lățimea se va calcula automat
-            span.style.textAlign = 'center'; // Centrarea textului
+            span.style.display = 'inline-block';
+            span.style.width = 'auto';
+            span.style.textAlign = 'center';
 
             if (originalContent[i] === ' ') {
-                span.innerHTML = '&nbsp;';
+                span.innerHTML = ' ';
                 element.appendChild(span);
                 continue;
             }
             
-            // Adăugăm textul inițial cu aceeași dimensiune ca cel final
             span.textContent = originalContent[i];
-            
-            // Măsurăm și fixăm lățimea fiecărui caracter
             element.appendChild(span);
             const initialWidth = span.offsetWidth;
             span.style.width = `${initialWidth}px`;
             span.style.minWidth = `${initialWidth}px`;
             
-            // Acum putem începe animația cu lățimea fixată
             span.textContent = chars[Math.floor(Math.random() * chars.length)];
-            animateLetter(span, originalContent[i], maxIterations, i * 20);
+            animateLetter(span, originalContent[i], maxIterations, i * iterationDelay);
         }
     };
 
@@ -79,7 +71,6 @@ const AnimatedNavbarText = forwardRef(({ text }, ref) => {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        // Când componenta este montată, măsurăm și fixăm lățimea containerului
         if (containerRef.current) {
             const textWidth = containerRef.current.offsetWidth;
             containerRef.current.style.width = `${textWidth}px`;
@@ -111,10 +102,9 @@ const AnimatedNavbarText = forwardRef(({ text }, ref) => {
 const AnimatedButton = ({ text, href, Icon, onClick }) => {
     const animatedTextRef = useRef(null);
     const textContainerRef = useRef(null);
-    
+
     useEffect(() => {
         if (textContainerRef.current) {
-            // Fixăm lățimea containerului
             const width = textContainerRef.current.offsetWidth;
             textContainerRef.current.style.width = `${width}px`;
             textContainerRef.current.style.minWidth = `${width}px`;
@@ -156,14 +146,12 @@ const DockItem = ({ IconComponent, text, onClick }) => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
         };
-
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
 
-    // Fixare dimensiuni pentru text container
     useEffect(() => {
         if (containerRef.current) {
             const width = containerRef.current.offsetWidth;
@@ -208,29 +196,31 @@ const DockItem = ({ IconComponent, text, onClick }) => {
     );
 };
 
-// Restul codului rămâne neschimbat
 const Navbar = () => {
     const navbarRef = useRef(null);
     const mobileMenuRef = useRef(null);
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [isTablet, setIsTablet] = useState(false);
     const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
 
+    useEffect(() => {
+        if (searchParams.get('admin') === 'true') {
+            console.log('Parametru admin=true detectat, deschid modalul.');
+            setIsAdminModalOpen(true);
+        }
+    }, [searchParams]);
+
     const scrollToCases = () => {
-        // Close menu if open
         if (isMenuOpen) {
             handleMenuToggle();
         }
-
-        // Find the Cases section by ID
         const casesElement = document.getElementById('Cases');
         if (casesElement) {
-            // Scroll to the Cases section with smooth behavior
             casesElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-            // If we're not on the homepage, navigate to it and then scroll
             router.push('/#Cases');
         }
     };
@@ -301,11 +291,8 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Check URL hash on load and scroll if needed
     useEffect(() => {
-        // Check if URL has a hash that matches our target
         if (window.location.hash === '#Cases') {
-            // Use setTimeout to ensure the DOM is fully loaded
             setTimeout(() => {
                 const casesElement = document.getElementById('Cases');
                 if (casesElement) {
@@ -361,44 +348,34 @@ const Navbar = () => {
         }
     };
 
-    const [isInitialVerification, setIsInitialVerification] = useState(false);
+    const handleAdminClick = async (e) => {
+        e.preventDefault();
+        console.log('Începe verificarea sesiunii admin...');
 
-const handleAdminClick = async (e) => {
-  e.preventDefault();
-  console.log('Începe verificarea sesiunii admin...');
+        try {
+            const response = await fetch('/api/admin/verify-session', {
+                method: 'GET',
+                credentials: 'include',
+            });
 
-  try {
-    const response = await fetch('/api/admin/verify-session', {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        Cookie: `admin_session=${document.cookie.split('admin_session=')[1]?.split(';')[0] || ''}`,
-      },
-    });
-    console.log('Răspuns de la /api/admin/verify-session:', {
-      status: response.status,
-      ok: response.ok,
-    });
+            if (response.ok) {
+                console.log('Sesiune validă, redirecționez la /admin');
+                router.push('/admin');
+            } else {
+                console.log('Sesiune invalidă sau lipsă. Deschid modalul pentru passkey.');
+                setIsAdminModalOpen(true);
+            }
+        } catch (error) {
+            console.error('Eroare la verificarea sesiunii admin:', error);
+            setIsAdminModalOpen(true);
+        }
+    };
 
-    if (response.ok) {
-      console.log('Sesiune validă, redirecționez la /admin');
-      router.push('/admin');
-      console.log('Redirecționare inițiată către /admin');
-    } else {
-      console.log('Sesiune invalidă, status:', response.status);
-      const data = await response.json();
-      console.log('Mesaj de eroare de la server:', data.message);
-      setIsInitialVerification(true);
-      setIsAdminModalOpen(true);
-      console.log('Modalul de admin a fost deschis');
-    }
-  } catch (error) {
-    console.error('Eroare la verificarea sesiunii admin:', error);
-    setIsInitialVerification(true);
-    setIsAdminModalOpen(true);
-    console.log('Modalul de admin a fost deschis din cauza erorii');
-  }
-};
+    const handlePasskeySuccess = () => {
+        console.log('Autentificare Passkey reușită, redirecționez la /admin');
+        setIsAdminModalOpen(false);
+        router.push('/admin');
+    };
 
     return (
         <>
@@ -414,27 +391,25 @@ const handleAdminClick = async (e) => {
                     <Image src="/assets/icons/logo-full.svg" width={22} height={162} alt="logo" className="h-8 w-fit" />
                 </Link>
 
-                {/* Desktop Menu */}
                 <div className="beta mr-auto md:text-[12px] text-[7px]">
                     <p>Beta v1.0</p>
                 </div>
-                {/* Routes nav  */}
-                <div className= {`dock_nav px-3 md:flex ${isMobile ? '' : 'border_unv nav_gradient1'}`}>
+                
+                <div className={`dock_nav px-3 md:flex ${isMobile ? '' : 'border_unv nav_gradient1'}`}>
                     <div className="nav_links_container w-full">
                         {icons.map((item, index) => (
-                    <div key={index} onClick={item.onClick ? item.onClick : null}>
-                    <DockItem
-                        IconComponent={item.icon}
-                        text={item.text}
-                        onClick={item.onClick ? item.onClick : null}
-                    />
-                    </div>
+                            <div key={index} onClick={item.onClick ? item.onClick : null}>
+                                <DockItem
+                                    IconComponent={item.icon}
+                                    text={item.text}
+                                    onClick={item.onClick ? item.onClick : null}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Admin & Mobile Menu Controls */}
-                <div className= "flex items-center gap-2 mobile-controls" >
+                <div className="flex items-center gap-2 mobile-controls">
                     {!isMobile && (
                         <Link href="/register" passHref className="w-full">
                             <div id="patient_btn" className="border_unv dock-item-link-wrap rounded-lg">
@@ -448,18 +423,7 @@ const handleAdminClick = async (e) => {
                             <AnimatedButton text="Admin" href="#" Icon={MdAdminPanelSettings} />
                         </div>
                     </Link>
-
-                    {/* Show PasskeyModal only if needed */}
-                    {isAdminModalOpen && (
-                        <PasskeyModal
-                            onClose={() => {
-                                setIsAdminModalOpen(false);
-                                setIsInitialVerification(false);
-                            }}
-                            redirectToAdmin={isInitialVerification}
-                        />
-                    )}
-                    {/* Responsive menu button */}
+                    
                     <button
                         className="mobile-menu-button"
                         onClick={handleMenuToggle}
@@ -470,7 +434,6 @@ const handleAdminClick = async (e) => {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
             <div ref={mobileMenuRef} className={`mobile-menu rounded-md mt-5 ${isMenuOpen ? 'open' : ''}`}>
                 <div className="w-full flex justify-between items-center mt-2 topmen">
                     <h3 className='mt-3'>menu</h3>
@@ -489,7 +452,6 @@ const handleAdminClick = async (e) => {
                             className="mobile-menu-item flex justify-between items-center w-full"
                             onClick={() => {
                                 if (item.onClick) item.onClick();
-                                // Don't call handleMenuToggle here, it's already called within scrollToCases
                             }}
                         >
                             <span className="text-2xl text-white w-full pb-4" style={{ display: 'inline-block' }}>
@@ -502,6 +464,13 @@ const handleAdminClick = async (e) => {
             </div>
 
             <div className="mobile-menu-overlay"></div>
+
+            {isAdminModalOpen && (
+                <PasskeyModal
+                    onClose={() => setIsAdminModalOpen(false)}
+                    onSuccess={handlePasskeySuccess}
+                />
+            )}
         </>
     );
 };
