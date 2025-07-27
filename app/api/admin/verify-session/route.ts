@@ -22,6 +22,7 @@ export async function GET(request: NextRequest) {
         } else {
             return NextResponse.json({ success: false, message: 'Invalid session token.' }, { status: 401 });
         }
+        
     } catch (error) {
         console.error('Error verifying session:', error.message);
         return NextResponse.json({ success: false, message: 'Error verifying session.' }, { status: 401 });

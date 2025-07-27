@@ -15,8 +15,7 @@ import { NextRequest, NextResponse } from 'next/server';
       }
 
       try {
-        console.log('Middleware: JWT_SECRET:', process.env.JWT_SECRET); // Adaugă log
-        console.log('Middleware: Token primit:', token);
+
         const secret = new TextEncoder().encode(process.env.JWT_SECRET);
         if (!process.env.JWT_SECRET) {
           throw new Error('JWT_SECRET nu este setat în environment variables.');

@@ -8,26 +8,25 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
 
   // Sentry.metrics.set("user_view_register", user.name);
 
-  return (
-    <div className="flex h-screen max-h-screen">
-      <section className="container">
-        <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
-
-          <RegisterForm user={user} />
-
-          <p className="copyright py-4">Scaleup©</p>
-        </div>
-        <div className="relative z-[-1]">
-          <Image
-            src="/assets/images/3dlink.avif"
-            height={700}
-            width={700}
-            alt="patient"
-            className="side-img max-w-[350px] object-cover image-shadow"
-          />
-        </div>
-      </section>
+return (
+<div className="flex h-screen max-h-screen">
+  <section className="container relative">
+    <div className="sub-container max-w-[860px] flex-1 flex-col py-10" style={{ zIndex: 2, position: 'relative' }}>
+      <RegisterForm user={user} />
+      <p className="copyright py-4"></p>
     </div>
+
+    <div className="absolute top-0 right-0" style={{ zIndex: 1 }}>
+      <Image
+        src="/assets/images/3dlink.avif"
+        height={700}
+        width={700}
+        alt="patient"
+        className="side-img max-w-[350px] object-cover image-shadow"
+      />
+    </div>
+  </section>
+</div>
   );
 };
 

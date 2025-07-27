@@ -208,7 +208,7 @@ const Navbar = () => {
 
     useEffect(() => {
         if (searchParams.get('admin') === 'true') {
-            console.log('Parametru admin=true detectat, deschid modalul.');
+            console.log('Parameter admin=true detectat, open modal.');
             setIsAdminModalOpen(true);
         }
     }, [searchParams]);
@@ -350,7 +350,7 @@ const Navbar = () => {
 
     const handleAdminClick = async (e) => {
         e.preventDefault();
-        console.log('Începe verificarea sesiunii admin...');
+        console.log('Start the verify session admin...');
 
         try {
             const response = await fetch('/api/admin/verify-session', {

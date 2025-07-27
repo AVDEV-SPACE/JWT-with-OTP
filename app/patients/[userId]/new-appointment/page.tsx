@@ -44,8 +44,8 @@ const Appointment = ({ params: { userId } }: SearchParamProps) => {
 
   return (
     <div className="flex h-auto relative">
-      <section className="remove-scrollbar mt-[6rem] mx-auto ">
-        <div className="sub-container max-w-[700px] py-6 flex-1 justify-between shadow-neutral-800 forms border_unv rounded-2xl px-5">
+      <section className="sub-container remove-scrollbar max-w-6xl mt-[6rem] mx-auto ">
+        <div className="py-6 flex-1 justify-between shadow-neutral-800 forms border_unv rounded-lg px-5">
           <AppointmentForm
             patientId={patient?.$id}
             userId={userId}

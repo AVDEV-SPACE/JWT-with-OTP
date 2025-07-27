@@ -15,65 +15,62 @@ const AppointmentDatePicker: React.FC<AppointmentDatePickerProps> = ({
   appointment,
   onDateTimeSelect
 }) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedTime, setSelectedTime] = useState<string | undefined>(undefined);
   
-  const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+  const [selectedTime, setSelectedTime] = useState<string | undefined>(undefined)
+  const [availableTimes, setAvailableTimes] = useState<string[]>([])
+  const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  //* ✅ Inițializăm data și ora dacă există deja o programare
   useEffect(() => {
     if (appointment?.schedule) {
-      const date = new Date(appointment.schedule);
-      setSelectedDate(date);
-      setSelectedTime(formatDateTime(date).time);
+      const date = new Date(appointment.schedule)
+      setSelectedDate(date)
+      setSelectedTime(formatDateTime(date).time)
     }
-  }, [appointment]);
+  }, [appointment])
 
-  //* ✅ Fetch programările doctorului pe ziua selectată
+
   useEffect(() => {
     if (selectedDate && selectedDoctorId) {
-      fetchBookedAppointments(selectedDate, selectedDoctorId);
+      fetchBookedAppointments(selectedDate, selectedDoctorId)
     }
-  }, [selectedDate, selectedDoctorId]);
+  }, [selectedDate, selectedDoctorId])
+
 
   const fetchBookedAppointments = async (date: Date, doctorId: string) => {
-    setIsLoading(true);
+    setIsLoading(true)
     try {
-        console.log("🔄 Fetching booked appointments for:", date, "Doctor ID:", doctorId);
-        const bookedTimes = await getAppointmentsByDate(date, doctorId);
-
-        console.log("📌 Fetched booked times:", bookedTimes);
-        const availableSlots = generateAvailableTimes(bookedTimes);
-        
-        console.log("✅ Available slots after filtering:", availableSlots);
-        setAvailableTimes(availableSlots);
+      console.log("🔄 Fetching booked appointments for:", date, "Doctor ID:", doctorId)
+      const bookedTimes = await getAppointmentsByDate(date, doctorId)
+      console.log("📌 Fetched booked times:", bookedTimes)
+      const availableSlots = generateAvailableTimes(bookedTimes)
+      console.log("✅ Available slots after filtering:", availableSlots)
+      setAvailableTimes(availableSlots)
     } catch (error) {
-        console.error("❌ Error fetching booked slots:", error);
+      console.error("❌ Error fetching booked slots:", error)
     } finally {
-        setIsLoading(false);
+      setIsLoading(false)
     }
-};
+  }
 
-  //* ✅ Generăm orele disponibile, eliminând orele rezervate
   const generateAvailableTimes = (bookedTimes: string[]) => {
-    const startHour = 8;
-    const endHour = 18;
-    const interval = 30;
-    const times: string[] = [];
-    const bookedSet = new Set(bookedTimes);
+    const startHour = 8
+    const endHour = 18
+    const interval = 30
+    const times: string[] = []
+    const bookedSet = new Set(bookedTimes)
 
     for (let hour = startHour; hour < endHour; hour++) {
       for (let minute = 0; minute < 60; minute += interval) {
-        const timeSlot = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+        const timeSlot = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`
         if (!bookedSet.has(timeSlot)) {
-          times.push(timeSlot);
+          times.push(timeSlot)
         }
       }
     }
-    return times;
-  };
+    return times
+  }
 
   return (
     <div className="w-full relative">
@@ -82,42 +79,42 @@ const AppointmentDatePicker: React.FC<AppointmentDatePickerProps> = ({
         readOnly
         value={selectedDate && selectedTime ? `${formatDateTime(selectedDate).date} ${selectedTime}` : 'Select a date and time'}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full border border-gray-700 rounded-md p-2 cursor-pointer bg-black/80 text-white"
+        className="w-full  rounded-md p-2 cursor-pointer border_unv bg-black/80 text-white outline-none focus:border-[#482acc]"
       />
 
       {isOpen && (
-        <div className="calendar-container flexabsolute top-12 left-0 w-full bg-black/90 p-2 rounded-lg border border-gray-700 shadow-lg z-50">
+        <div className="calendar-container absolute top-12 left-0 w-full bg-black/90 p-2 rounded-lg border border-dark-500 shadow-lg z-50">
           <div className="calendar-wrapper">
             <Calendar
               mode="single"
               selected={selectedDate || undefined}
               onSelect={(date) => {
                 if (date) {
-                  setSelectedDate(date);
-                  fetchBookedAppointments(date, selectedDoctorId);
+                  setSelectedDate(date)
+                  fetchBookedAppointments(date, selectedDoctorId)
                 }
               }}
               disabled={(date) => date && date < new Date(new Date().setHours(0, 0, 0, 0))}
-              className="bg-transparent"
+              className="bg-transparent text-white border border-dark-500 rounded-md p-2"
             />
 
-            <div className="w-auto flex flex-col">
+            <div className="w-auto flex flex-col mt-2">
               {isLoading ? (
                 <p className="text-gray-300">Loading available times...</p>
               ) : availableTimes.length > 0 ? (
-                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mt-2">
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                   {availableTimes.map((time) => (
                     <button
                       key={time}
-                      className={`border rounded-md px-2 py-2 text-center ${selectedTime === time ? 'bg-blue-500 text-white' : 'bg-gray-800'}`}
+                      className={`border border-dark-500 rounded-md px-2 py-2 text-center bg-transparent text-white hover:bg-gray-800 ${selectedTime === time ? 'bg-blue-500' : ''}`}
                       onClick={() => {
-                        setSelectedTime(time);
-                        setIsOpen(false);
+                        setSelectedTime(time)
+                        setIsOpen(false)
                         if (selectedDate) {
-                          const [hour, minute] = time.split(':').map(Number);
-                          const selectedDateTime = new Date(selectedDate);
-                          selectedDateTime.setHours(hour, minute);
-                          onDateTimeSelect(selectedDateTime);
+                          const [hour, minute] = time.split(':').map(Number)
+                          const selectedDateTime = new Date(selectedDate)
+                          selectedDateTime.setHours(hour, minute)
+                          onDateTimeSelect(selectedDateTime)
                         }
                       }}
                     >
@@ -126,14 +123,14 @@ const AppointmentDatePicker: React.FC<AppointmentDatePickerProps> = ({
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-300 mt-2">No available times for this date</p>
+                <p className="text-gray-300">No available times for this date</p>
               )}
             </div>
           </div>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default AppointmentDatePicker;
+export default AppointmentDatePicker

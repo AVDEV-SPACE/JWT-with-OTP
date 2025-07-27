@@ -100,7 +100,7 @@ export function ScheduleChart({ appointments }) {
     <Card className="charts relative bg-black/90 border_unv flex flex-col">
       <CardHeader className="flex items-center space-y-0 py-5 sm:flex-row">
         <div className="grid flex-1 text-center sm:text-left">
-          <CardTitle>Candlestick Chart</CardTitle>
+          <CardTitle>Scheduled Chart</CardTitle>
           <CardDescription className="-mt-2">
             Appointments overview (OHLC style)
           </CardDescription>

@@ -34,6 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    "types/**/*.d.ts",
     "components/landing_page/Cases/Cases.jsx",
     "components/landing_page/Faq.jsx",
     "components/landing_page/Header.jsx"

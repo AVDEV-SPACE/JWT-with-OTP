@@ -1,3 +1,4 @@
+// components/table/DataTable.tsx
 "use client";
 import React from "react";
 import {
@@ -26,6 +27,7 @@ export function DataTable<TData>({
   setCurrentPage,
   fetchAppointments
 }: DataTableProps<TData>) {
+
   const table = useReactTable({
     data,
     columns,
@@ -61,8 +63,10 @@ export function DataTable<TData>({
   const headerGroups = table.getHeaderGroups();
 
   return (
-    <div className="data-table h-auto border_unv overflow-x-auto">
-      <Table className="shad-table min-w-full">
+    <div className="data-table h-auto border_unv overflow-x-hidden">
+      <Table className="shad-table w-full md:min-w-full">
+        
+{/* HEADER */}
         <TableHeader className="bg-table-head border-b-0 with-linear-gradient">
           {headerGroups.map(headerGroup => (
             <TableRow key={headerGroup.id}>
@@ -74,7 +78,13 @@ export function DataTable<TData>({
                     className={`
                       ${columnId === "schedule" ? "hidden md:table-cell" : ""}
                       ${columnId === "primaryPhysician" ? "hidden md:table-cell" : ""}
-                      ${columnId === "status" ? "hidden sm:table-cell" : ""}
+                      ${columnId === "status" ? "table-cell" : ""}
+                      ${columnId === "patient" ? "table-cell" : ""}
+                      ${columnId === "actions" ? "table-cell" : ""}
+                      ${columnId === "patient" || columnId === "status" || columnId === "actions" 
+                        ? "px-1 py-2 sm:px-3 md:px-4" // Padding redus pentru cele 3 coloane cheie
+                        : "px-4 py-2" // Padding normal pentru celelalte coloane (care sunt ascunse oricum)
+                      }
                     `}
                   >
                     {header.isPlaceholder
@@ -87,10 +97,11 @@ export function DataTable<TData>({
             </TableRow>
           ))}
         </TableHeader>
+{/* BODY */}
         <TableBody>
           {currentPageData.length > 0 ? (
             currentPageData.map((item, index) => (
-              <TableRow key={index} className="border-b border-neutral-600">
+              <TableRow key={index} className="border-b border-neutral-600 ">
                 {columns.map((column, colIndex) => {
                   const columnId = column.accessorKey as string;
                   return (
@@ -99,7 +110,13 @@ export function DataTable<TData>({
                       className={`
                         ${columnId === "schedule" ? "hidden md:table-cell" : ""}
                         ${columnId === "primaryPhysician" ? "hidden md:table-cell" : ""}
-                        ${columnId === "status" ? "hidden sm:table-cell" : ""}
+                        ${columnId === "status" ? "table-cell" : ""}
+                        ${columnId === "patient" ? "table-cell" : ""}
+                        ${columnId === "actions" ? "table-cell" : ""}
+                        ${columnId === "patient" || columnId === "status" || columnId === "actions" 
+                          ? "px-1 py-3 sm:px-3 md:px-4" // Padding redus pentru cele 3 coloane cheie
+                          : "px-4 py-5" // Padding normal pentru celelalte coloane
+                        }
                       `}
                     >
                       {column.header === "Nr." ? (
@@ -126,6 +143,7 @@ export function DataTable<TData>({
           )}
         </TableBody>
       </Table>
+{/* PAGINATIONS */}
       <div className="table-pagination">
         <Button
           size="sm"
@@ -144,6 +162,7 @@ export function DataTable<TData>({
           <IoIosArrowDropleftCircle size={30} className="rotate-180" />
         </Button>
       </div>
+
     </div>
   );
 }

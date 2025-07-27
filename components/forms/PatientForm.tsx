@@ -66,7 +66,7 @@ export const PatientForm = () => {
             <h1 className="header">Hello</h1>
             <p className="text-dark-700 -mt-5">please register</p>
         </section>
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-3">
         <CustomFormField
             fieldType={FormFieldType.INPUT}
             control={form.control}
@@ -91,11 +91,9 @@ export const PatientForm = () => {
             name="phone"
             label="Phone number"
             placeholder="(+40) 752 843 555"
-            iconSrc="/assets/icons/email.svg"
-            iconAlt="email"
         />
 
-        <SubmitButton isLoading={isLoading} className="shad-primary-btn w-full mt-6">
+        <SubmitButton isLoading={isLoading} className="shad-primary-btn w-full mt-8">
         <p className="">Submit</p>
         <p className="">Submit</p>
         </SubmitButton>

@@ -18,6 +18,7 @@ import { Appointment } from "@/types/appwrite.types";
 
 // Dummy definitions for demonstration if not already defined:
 type Status = "pending" | "scheduled" | "cancelled";
+
 interface UpdateAppointmentParams {
     userId: string;
     appointmentId: string;
@@ -34,13 +35,16 @@ export const AppointmentForm = ({
     onFormSubmit,
     onSuccess,
 }: {
+
     userId: string;
     patientId: string;
     type: "create" | "cancel" | "schedule";
     appointment?: Appointment;
+
     setOpen: (open: boolean) => void;
     onFormSubmit: (appointment: UpdateAppointmentParams) => Promise<Appointment>;
     onSuccess?: () => void;
+
 }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -49,6 +53,7 @@ export const AppointmentForm = ({
 
     const AppointmentFormValidation = getAppointmentSchema(type);
 
+    //? ensures the response are well handeld
     const form = useForm<z.infer<typeof AppointmentFormValidation>>({
         resolver: zodResolver(AppointmentFormValidation),
         defaultValues: {
@@ -60,6 +65,7 @@ export const AppointmentForm = ({
         },
     });
 
+    //! -- calling the slots checking function  
     useEffect(() => {
         const fetchBookedAppointments = async () => {
             if (!selectedDoctor) return;
@@ -141,7 +147,7 @@ export const AppointmentForm = ({
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 flex-1 overflow-hidden">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 max-w-3xl  flex-1 ">
                 {type === 'create' && (
                     <section className="mb-12">
                         <h1 className="header text-white">Schedule your appointment</h1>
@@ -158,25 +164,26 @@ export const AppointmentForm = ({
                             placeholder="Select a doctor"
                             labelClassName="text-white"
                         >
-                            {Doctors.map((doctor, i) => (
+
+                        {Doctors.map((doctor, i) => (
                             <SelectItem
-                                key={doctor.name + i}
-                                value={doctor.name}
-                                // Clasa pentru elementele SelectItem
-                                className="bg-black/90 text-white rounded-md" 
+                            key={doctor.name + i}
+                            value={doctor.name}
+                            className="bg-black/90 text-white rounded-md z-50" // Increased z-index
                             >
-                                <div className="flex cursor-pointer items-center gap-2">
-                                    <Image
-                                        src={doctor.image}
-                                        width={32}
-                                        height={32}
-                                        alt="doctor"
-                                        className="rounded-full" 
-                                    />
-                                    <p>{doctor.name}</p>
-                                </div>
+                            <div className="flex cursor-pointer items-center gap-2">
+                                <Image
+                                src={doctor.image}
+                                width={32}
+                                height={32}
+                                alt="doctor"
+                                className="rounded-full"
+                                />
+                                <p>{doctor.name}</p>
+                            </div>
                             </SelectItem>
-                            ))}
+                        ))}
+
                         </CustomFormField>
 
                         <CustomFormField
@@ -209,8 +216,9 @@ export const AppointmentForm = ({
                                 label="Comments/notes"
                                 placeholder="Prefer afternoon appointments, if possible"
                                 labelClassName="text-white"
-                            />
+                            />                           
                         </div>
+                        
                     </>
                 )}
 

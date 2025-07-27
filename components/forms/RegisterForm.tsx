@@ -146,7 +146,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="birthDate"
             label="Date of birth"
             className="w-8/12 flex-2"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
           <CustomFormField
             fieldType={FormFieldType.SKELETON}
@@ -154,7 +154,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="gender"
             label="Gender"
             className="w-4/12"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
             renderSkeleton={(field) => (
               <FormControl>
                 <RadioGroup className="flex h-11 gap-2 xl:justify-between"
@@ -180,7 +180,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="address"
             label="Address"
             placeholder="nr Street, City"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
           <CustomFormField
             fieldType={FormFieldType.INPUT}
@@ -188,7 +188,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="occupation"
             label="Occupation"
             placeholder="your profession"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
         </div>
 
@@ -199,7 +199,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="emergencyContactName"
             label="Emergency contact name"
             placeholder="Person's name"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
           <CustomFormField
             fieldType={FormFieldType.PHONE_INPUT}
@@ -207,7 +207,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="emergencyContactNumber"
             label="Emergency contact number"
             placeholder="(+40) 752 843 555"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
         </div>
 
@@ -248,7 +248,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="insuranceProvider"
             label="Insurance provider"
             placeholder="Insurance provider"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
           <CustomFormField
             fieldType={FormFieldType.INPUT}
@@ -256,7 +256,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="insurancePolicyNumber"
             label="Insurance policy number"
             placeholder="IPN000000"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
         </div>
 
@@ -267,7 +267,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="allergies"
             label="Allergies (if any)"
             placeholder="Dust, cat, milk"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
           <CustomFormField
             fieldType={FormFieldType.TEXTAREA}
@@ -275,7 +275,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="currentMedication"
             label="Current medication (if any)"
             placeholder="No spa 100mg, Paracetamol 500mg"
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
         </div>
 
@@ -286,7 +286,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="familyMedicalHistory"
             label="Family medical history"
             placeholder=""
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
           <CustomFormField
             fieldType={FormFieldType.TEXTAREA}
@@ -294,7 +294,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             name="pastMedicalHistory"
             label="Past medical history"
             placeholder=" "
-            labelClassName="text-white" // Adăugat
+            labelClassName="text-white" 
           />
         </div>
 
@@ -310,7 +310,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           name="identificationType"
           label="Identification type"
           placeholder="Select an identification type"
-          labelClassName="text-white" // Adăugat
+          labelClassName="text-white"
         >
           {IdentificationTypes.map((type) => (
             <SelectItem key={type} value={type} className="text-white">
@@ -325,7 +325,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           name="identificationNumber"
           label="Identification number"
           placeholder="1950724356060"
-          labelClassName="text-white" // Adăugat
+          labelClassName="text-white" 
         />
 
         {/* Randare directă a FileUploader-ului pentru a asigura vizibilitatea */}
@@ -353,21 +353,21 @@ const RegisterForm = ({ user }: { user: User }) => {
           control={form.control}
           name="treatmentConsent"
           label="I consent to treatment"
-          labelClassName="text-white" // Adăugat
+          labelClassName="text-white"
         />
         <CustomFormField
           fieldType={FormFieldType.CHECKBOX}
           control={form.control}
           name="disclosureConsent"
           label="I consent to disclosure of information"
-          labelClassName="text-white" // Adăugat
+          labelClassName="text-white"
         />
         <CustomFormField
           fieldType={FormFieldType.CHECKBOX}
           control={form.control}
           name="privacyConsent"
           label="I consent to privacy policy"
-          labelClassName="text-white" // Adăugat
+          labelClassName="text-white"
         />
 
         <SubmitButton isLoading={isLoading} className="shad-primary-btn w-full">

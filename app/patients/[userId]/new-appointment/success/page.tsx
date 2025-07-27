@@ -21,7 +21,7 @@ const Success = async ({ params: {userId}, searchParams }: SearchParamProps) => 
 
   return (
     <div className='flex h-auto px-[5%] py-8'>
-      <div className='success-img max-w-[900px] max-h-screen shadow-neutral-800 forms border_unv rounded-2xl px-2 py-3'>
+      <div className='success-img max-w-[900px] max-h-screen shadow-neutral-800 forms border_unv rounded-lg px-2 py-3'>
       <Link href='/'>
         <Image 
          src="/assets/icons/logo-full.svg"
@@ -31,7 +31,7 @@ const Success = async ({ params: {userId}, searchParams }: SearchParamProps) => 
          className="h-10 w-fit"
         />
       </Link>
-
+{/* TITLE */}
       <section className='flex flex-col items-center '>
         <Image 
           src="/assets/gifs/success.gif"
@@ -44,7 +44,7 @@ const Success = async ({ params: {userId}, searchParams }: SearchParamProps) => 
       </h2>
       <p>We will be in touch shortly to confirm.</p>
       </section>
-
+{/* DETAILS OF THE CURRENT APPOINTMENT REQUEST */}
       <section className='request-details'>
         <p>Requested appointment details:</p>
         <div className='flex items-center gap-3'>
@@ -67,16 +67,13 @@ const Success = async ({ params: {userId}, searchParams }: SearchParamProps) => 
           <p>{formatDateTime(appointment.schedule).dateTime}</p>
         </div>
       </section>
-      <div className="btn -mt-10">
+
+      <div className="btn -mt-5">
       <Link href={`/patients/${userId}/new-appointment`}>
         <div  className='shad-primary-btn w-[170px] h-[30px] border' >
-            <p>New Appointment</p>
+            <p className='text-white'>New Appointment</p>
         </div>
-        </Link>
-
-        <p className="copyright py-2 mx-auto">
-          Scaleup©
-        </p>
+      </Link>
       </div>
 
       </div>

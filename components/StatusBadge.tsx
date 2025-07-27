@@ -15,7 +15,7 @@ const StatusBadge = ({ status }: {status: Status}) => {
     alt={status}
     width={24}
     height={24}
-    className='h-fit w-3'
+    className='h-fit w-[8px]'
     />
     <p className={clsx('text-12-semibold capitalize', {
       'text-green-500 ': status === 'scheduled',

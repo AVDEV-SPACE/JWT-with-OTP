@@ -27,11 +27,12 @@ const FileUploader = ({ files, onChange }: FileUploaderProps) => {
                     width={1000}
                     height={1000}
                     alt='uploaded image'
-                    className='max-h-[400px] overflow-hidden object-cover'
+                    className='max-h-[400px] overflow-hidden 
+                    text-white object-cover'
                 />
             ) : (
                 <>
-                    <RiFileUploadLine size={30} />
+                    <RiFileUploadLine size={30} className='text-white' />
                     <div className='file-upload_label'>
                         <p className='text-14-regular'>
                             <span className='text-indigo-500 animate-pulse mr-2'>Click to upload</span> or drag and drop

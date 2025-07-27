@@ -70,7 +70,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                         <Input
                             placeholder={placeholder}
                             {...field}
-                            className='shad-input border-0 bg-transparent text-white placeholder:text-gray-400'
+                            className='shad-input rounded-lg bg-black/80 text-white placeholder:text-gray-400'
                         />
                     </FormControl>
                 </div>
@@ -86,7 +86,8 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                         withCountryCallingCode
                         value={field.value as E164Number | undefined}
                         onChange={field.onChange}
-                        className='input-phone border_unv bg-black/80 text-white placeholder:text-gray-400 rounded-full'
+                        className='input-phone border_unv bg-black/80 text-white placeholder:text-gray-400 rounded-lg' 
+                        inputClassName='bg-transparent text-white placeholder:text-gray-400' // Added input-specific class
                     />
                 </FormControl>
             );
@@ -107,7 +108,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             return (
                 <FormControl>
                     <AppointmentDatePicker
-                        className="border rounded-lg"
+                        className="border_unv bg-black/80 rounded-lg"
                         selectedDoctorId={props.selectedDoctor || ''}
                         appointment={props.appointment}
                         onDateTimeSelect={(date: Date) => {
@@ -121,23 +122,23 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                         bookedTimes={props.bookedTimes}
                     />
                 </FormControl>
-            );
+        );
 
         case FormFieldType.SELECT:
             return (
-                <FormControl className='border_unv bg-black/80 rounded-full'>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                            <SelectTrigger className="text-white placeholder:text-gray-400">
-                                <SelectValue placeholder={placeholder} />
-                            </SelectTrigger>
-                        </FormControl>
-                        <SelectContent className='shad-select-content bg-black/80 text-white'>
-                            {props.children}
-                        </SelectContent>
-                    </Select>
-                </FormControl>
-            );
+            <FormControl className='border_unv bg-black/80 rounded-lg'>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                        <SelectTrigger className="text-white placeholder:text-gray-400">
+                            <SelectValue placeholder={placeholder} />
+                        </SelectTrigger>
+                    </FormControl>
+                    <SelectContent className='bg-black/80 text-white' style={{ zIndex: 1100 }}>
+                        {props.children}
+                    </SelectContent>
+                </Select>
+            </FormControl>
+        );
 
         case FormFieldType.SKELETON:
             return renderSkeleton ? renderSkeleton(field) : null;

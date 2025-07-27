@@ -19,6 +19,7 @@ interface AdminProps {
 
 const Admin: React.FC<AdminProps> = ({ isLoading }) => {
     const router = useRouter();
+
     const [appointments, setAppointments] = useState<{
         documents: Appointment[];
         scheduledCount: number;
@@ -32,6 +33,7 @@ const Admin: React.FC<AdminProps> = ({ isLoading }) => {
     const welcomeTitleRef = useRef(null);
 
     const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
+
 // * TITTLE ANIMATION
     const applyEffect8Animation = (element, originalText) => {
         if (!element) return;
@@ -113,6 +115,7 @@ useEffect(() => {
         }
 
         const searchTermLower = term.toLowerCase();
+        
         const filtered = {
             ...appointments,
             documents: appointments.documents.filter(appointment => {
@@ -272,7 +275,7 @@ useEffect(() => {
                 {!isLoading && <NavbarDashboard />}
 {/* HEADER */}
                 <section className="relative h-[120px] w-full text-left z-2 space-y-12 mt-28">
-                    <div className="relative flex w-full justify-between items-start overflow-hidden rounded-lg">
+                    <div className="relative flex flex-col md:flex-row w-full justify-between items-start overflow-hidden rounded-lg">
                         <div>
                             <h1 className="z-20 title leading-[1] font-normal tracking-tight">
                                 <div ref={welcomeTitleRef}>Welcome</div>

@@ -1,44 +1,55 @@
+// app/admin/columns.ts - Rămâne neschimbat de la ultima versiune
+
 "use client";
 import { ColumnDef } from "@tanstack/react-table";
-import StatusBadge from "../StatusBadge";
+import StatusBadge from "@/components/StatusBadge";
 import Image from "next/image";
 import { formatDateTime } from "@/lib/utils";
 import { Doctors } from "@/constants";
-import AppointmentModal from "../AppointmentModal"; 
+import AppointmentModal from "@/components/AppointmentModal";
+
 import type { Appointment } from "@/types/appwrite.types";
-import type { UpdateAppointmentParams } from "@/types/params.types";
+import type { UpdateAppointmentParams } from "@/types/appwrite.types.ts";
 
 export const columns = (
+  
   handleOpenModal: (
     appointment: Appointment,
     type: "schedule" | "cancel" | "create"
   ) => void,
+
   onAppointmentChange: (
     appointment: UpdateAppointmentParams
   ) => Promise<Appointment | void>
+
 ): ColumnDef<Appointment>[] => [
+
   {
     accessorKey: "patient",
     header: "Patient",
     cell: ({ row }) => {
-      const patient = row.original.patient;
+      const patientName = row.original.patient ? row.original.patient.name : "Unknown";
       return (
-        <p className="text-14-medium text-left">{patient ? patient.name : "Unknown"}</p>
+        <p className="text-14-medium text-left flex-grow min-w-0 whitespace-normal break-words">
+          {patientName}
+        </p>
       );
     },
   },
+
   {
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => {
       const status = row.original.status;
       return (
-        <div className="min-w-[115px]">
+        <div className="flex justify-start flex-shrink-0 min-w-[50px]"> 
           <StatusBadge status={status} />
         </div>
       );
     },
   },
+
   {
     accessorKey: "schedule",
     header: "Appointment",
@@ -51,6 +62,7 @@ export const columns = (
       );
     },
   },
+
   {
     accessorKey: "primaryPhysician",
     header: "Doctor",
@@ -73,18 +85,19 @@ export const columns = (
       );
     },
   },
+
   {
     accessorKey: "actions",
-    header: () => <div className="pl-4">Actions</div>,
+    header: () => <div className="text-center">Actions</div>,
     cell: ({ row }) => {
       const appointment = row.original;
 
       return (
-        <div className="flex gap-1 text-white">
+        <div className="flex gap-1 text-white justify-center flex-wrap flex-shrink-0 min-w-[70px]"> 
           <AppointmentModal
             appointment={appointment}
             type="schedule"
-            title="Schedule Appointment"
+            title="S" 
             description="Please confirm the following details to schedule."
             onAppointmentChange={onAppointmentChange}
             setOpen={() => handleOpenModal(appointment, "schedule")}
@@ -94,7 +107,7 @@ export const columns = (
           <AppointmentModal
             appointment={appointment}
             type="cancel"
-            title="Cancel Appointment"
+            title="C" 
             description="Are you sure you want to cancel your appointment?"
             onAppointmentChange={onAppointmentChange}
             setOpen={() => handleOpenModal(appointment, "cancel")}
@@ -104,4 +117,5 @@ export const columns = (
       );
     },
   },
+  
 ];

@@ -16,12 +16,14 @@ interface AppointmentModalProps {
 }
 
 const AppointmentModal = ({
+
   type,
   appointment,
   title,
   description,
   onAppointmentChange,
   fetchAppointments,
+
 }: AppointmentModalProps) => {
   const [internalOpen, setInternalOpen] = useState(false);
   const [bookedTimes, setBookedTimes] = useState<Date[]>([]);
@@ -35,7 +37,7 @@ const AppointmentModal = ({
 
   const fetchBookedTimes = async (date: Date) => {
     try {
-      const appointments = await getAppointmentsByDate(date);
+      const appointments = await getAppointmentsByDate(date, 'doctorId');
       const bookedSlots = appointments.map((app: Appointment) => new Date(app.schedule));
       setBookedTimes(bookedSlots);
     } catch (error) {
@@ -43,11 +45,15 @@ const AppointmentModal = ({
     }
   };
 
+  //! TRIGGERS THE PROP PASSED IN THE `/admin` route for the `columns`, 
+  //! arguments passed on DataTable  
   const handleAppointmentChange = async (appointmentData: UpdateAppointmentParams) => {
+
     await onAppointmentChange(appointmentData);
     if (fetchAppointments) {
       fetchAppointments();
     }
+
     setInternalOpen(false);
   };
 
@@ -55,6 +61,7 @@ const AppointmentModal = ({
 
   return (
     <Dialog open={internalOpen} onOpenChange={setInternalOpen}>
+
       <DialogTrigger asChild>
         <Button 
           variant="ghost" 
@@ -63,9 +70,10 @@ const AppointmentModal = ({
           {type}
         </Button>
       </DialogTrigger>
-      <DialogContent className="shad-dialog sm:max-w-md">
+
+      <DialogContent className="shad-dialog sm:max-w-md shadow-md" style={{ zIndex: 1000 }}>
         <DialogHeader className="mb-4">
-          <DialogTitle className="capitalize">{title}</DialogTitle>
+          <DialogTitle className="capitalize">{type === 'schedule' ? 'schedule appointment' : title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
 
@@ -79,11 +87,10 @@ const AppointmentModal = ({
           setOpen={setInternalOpen}
           bookedTimes={bookedTimes}
           onDateChange={fetchBookedTimes}
-        />
+        />  
       </DialogContent>
     </Dialog>
   );
 };
 
 export default AppointmentModal;
-  

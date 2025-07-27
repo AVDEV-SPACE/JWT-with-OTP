@@ -1,31 +1,32 @@
+/* Existing imports and root variables remain unchanged */
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --font-family: "Michroma", serif !important;
   --font-family2: 'Hedvig Letters Serif', serif;
   --gradient-text: linear-gradient(129.97deg, #7a24c0 1%,#000C40,#431aa3);
   --gradient-text2: linear-gradient(129.97deg, #482acc 2%, #0d0d0ee0 45%) !important;
-  --gradient-text3: linear-gradient(129.97deg,  #0d0d0ee0 55%, #482acc 85%) !important;
+  --gradient-text3: linear-gradient(129.97deg, #0d0d0ee0 55%, #482acc 85%) !important;
   --gradient-bar: linear-gradient(103.22deg,#c2c2c2, #482acc);
   
-  --color-footer :#17181d;
+  --color-footer: #17181d;
   --color-blog: #042c54;
   --color-text: #c1c0b4;
   --color-subtext: #482acc;
 }
 
+/* Existing body and typography styles */
 body {
-  background-color:  #080808 !important;
+  background-color: #080808 !important;
   padding: 0;
 }
 p {
   @apply text-neutral-400 !important;
- }
+}
 h1 {
   font-family: "Michroma", serif !important;
   font-weight: 400;
@@ -59,8 +60,8 @@ h3 {
   clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%) !important;
 }
 .p-desc.invisible p {
-   opacity: 0;
-   visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
   line-height: 1 !important; 
 }
 .hide {
@@ -70,7 +71,7 @@ h3 {
   @apply border border-neutral-800 !important;
 }
 .shadow {
-  box-shadow:  linear-gradient(120deg, #4f46e5 6%, #5a16d8 13%, #0a0909 45%, #242323 65%) !important; 
+  box-shadow: linear-gradient(120deg, #4f46e5 6%, #5a16d8 13%, #0a0909 45%, #242323 65%) !important; 
 }
 .notif {
   @apply rounded-lg;
@@ -85,9 +86,9 @@ h3 {
   background-color: linear-gradient(170.97deg, #000C40 1.84%,#482acc);;
 }
 .sms_notif {
-  border-top: 2px solid  rgba(88, 103, 112, 0.555);
+  border-top: 2px solid rgba(88, 103, 112, 0.555);
   border-left: 1px solid rgba(88, 103, 112, 0.555);
-  border-right: 4px solid  rgba(88, 103, 112, 0.555);
+  border-right: 4px solid rgba(88, 103, 112, 0.555);
   border-top: 1px solid rgba(88, 103, 112, 0.26);
 }
 .sms_notif video {
@@ -105,8 +106,7 @@ h3 {
   @apply border border-neutral-950;
 }
 
-
-/** ====================== SCHEDUELED HOURS =================  */
+/** ====================== SCHEDUELED HOURS =================   */
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item.bg-green-500 {
   background-color: #10b3b9;
   color: white;
@@ -115,17 +115,10 @@ h3 {
   background-color: #10b3b9;
 }
 
-.date-picker {
-  width: 100%;
-}
-.date-picker input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 8px 12px;
-  color: inherit;
-}
+/*
+  These date-picker styles conflict with the ones in "REACT DATE PICKER OVERRIDES".
+  Consolidating them below.
+*/
 .booked-time-slot {
   color: #999 !important;
   background-color: #f0f0f0 !important;
@@ -164,13 +157,13 @@ h3 {
   border-radius: 1.4rem;
   position: absolute !important;
   inset: -1px;
-  background: radial-gradient(ellipse at bottom center, rgba(13, 8, 112, 0.562) 6%, rgba(84, 18, 206, 0.521) 13%, rgba(10, 9, 9, 0.925) 45%,  #000000e3 65%) !important;
+  background: radial-gradient(ellipse at bottom center, rgba(13, 8, 112, 0.562) 6%, rgba(84, 18, 206, 0.521) 13%, rgba(10, 9, 9, 0.925) 45%, #000000e3 65%) !important;
   filter: blur(6px);
   z-index: 1!important;
 }
-/** ================ Gradient Borders ===================  */
+/** ================ Gradient Borders ===================   */
 
-/** ================ Circular Gradient Borders ===================  */
+/** ================ Circular Gradient Borders ===================   */
 .notifbrd_gradient1, .notifbrd_gradient2, .notifbrd_gradient3, .pending_gradient2 {
   position: relative;
   border-radius: 0.2rem;
@@ -199,7 +192,6 @@ h3 {
   position: absolute;
   inset: 0;
   padding: 0.6px;
-  /* Changed to match original linear direction (-405deg) which was bottom-left to top-right */
   background: radial-gradient(circle at top left, #4f46e5 6%, #5a16d8 13%, 
   #0a0909 55%, #181717 85%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -216,8 +208,7 @@ h3 {
   position: absolute;
   inset: 0;
   padding: 0.6px;
-  /* Gradient radial circular cu centrul în stânga sus */
-  background: radial-gradient(circle at top left, #c50ac53b  10%, #3a07b1ad 30%, 
+  background: radial-gradient(circle at top left, #c50ac53b 10%, #3a07b1ad 30%, 
   rgba(10, 9, 9, 0.616) 40%, rgba(10, 9, 9, 0.568)70%, #420ac5ad 80%, #3a07b1e7 90%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -231,9 +222,8 @@ h3 {
   border-radius: 0.5rem;
   position: absolute !important;
   inset: -15px;
-  /* Gradient radial circular cu centrul în stânga sus (ajustat pentru efectul de blur) */
-  background: radial-gradient(ellipse at bottom right,  #5f0bbea1  12%,
-  #5507afa1   32%, rgba(10, 9, 9, 0.616) 55%, rgba(10, 9, 9, 0.568) 85%) !important;
+  background: radial-gradient(ellipse at bottom right, #5f0bbea1 12%,
+  #5507afa1 32%, rgba(10, 9, 9, 0.616) 55%, rgba(10, 9, 9, 0.568) 85%) !important;
   filter: blur(6px);
   z-index: -1 !important;
 }
@@ -244,8 +234,7 @@ h3 {
   position: absolute;
   inset: 0;
   padding: 0.6px;
-  /* Gradient radial circular cu centrul în stânga sus */
-  background: radial-gradient(circle at top left, #c50ac53b  10%, #3a07b1ad 30%, 
+  background: radial-gradient(circle at top left, #c50ac53b 10%, #3a07b1ad 30%, 
   rgba(10, 9, 9, 0.616) 40%, rgba(10, 9, 9, 0.568)70%, #420ac5ad 80%, #3a07b1e7 90%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -259,10 +248,9 @@ h3 {
   border-radius: 0.5rem;
   position: absolute !important;
   inset: 1px;
-
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 10%, transparent 80%) !important; 
   filter: blur(6px);
 }
-
 
 .pending_gradient2::before {
   content: "";
@@ -270,9 +258,8 @@ h3 {
   position: absolute;
   inset: 0;
   padding: 0.6px;
-  /* Gradient radial circular cu centrul în stânga sus */
-  background: radial-gradient(ellipse at bottom right,   #5507afa1   2%, #aa0fe785 13%,
-   rgba(36, 34, 34, 0.911) 55%, rgba(29, 26, 26, 0.808) 85%) !important;
+  background: radial-gradient(ellipse at bottom right, #5507afa1 2%, #aa0fe785 13%,
+    rgba(36, 34, 34, 0.911) 55%, rgba(29, 26, 26, 0.808) 85%) !important;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
@@ -280,20 +267,19 @@ h3 {
   pointer-events: none;
   z-index: 2;
 }
+
 .pending_gradient2::after {
   content: "";
-  border-radius: 0.5rem;
-  position: absolute !important;
+  position: absolute;
   inset: -15px;
-  background: radial-gradient(ellipse at bottom right,   #9008c585    2%, #aa0fe785 13%,
-   rgba(10, 9, 9, 0.616) 55%, rgba(10, 9, 9, 0.568) 85%) !important;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  border-radius: 0.5rem;
+  background: radial-gradient(ellipse at bottom right, #9008c585 2%, #aa0fe785 13%,
+    rgba(10, 9, 9, 0.616) 55%, rgba(10, 9, 9, 0.568) 85%) !important;
   filter: blur(6px);
   z-index: -1 !important;
 }
 
-/** ================  Circular Gradient Shadows  ================   */
+/** ================ Circular Gradient Shadows ================   */
 .notifbrd_gradient1::after {
   content: "";
   border-radius: 0.3rem !important;
@@ -316,28 +302,10 @@ h3 {
   z-index: -1 !important;
 }
 
-
-
-/* Optional: You can adjust the gradient position by changing the circle position */
-/* For example, to position the gradient in the top-left corner: */
 .notifbrd_gradient2.top-left::before, .notifbrd_gradient2.top-left::after {
   background: radial-gradient(circle at top left, #4f46e5 6%, #5a16d8 13%, 
   #0a0909 55%, #181717 85%);
 }
-
-
-
-
-.pending_gradient2::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 0.5rem;
-  background: l6near-gradient(180deg, rgba(79, 70, 229, 0.3) 60%, rgba(22, 83, 216, 0.3) 75%, rgba(3, 8, 54, 0.3) 95%, rgba(36, 35, 35, 0.3) 97%);
-  filter: blur(8px);
-  z-index: -1;
-}
-
 
 @layer utilities {
   .admin span {
@@ -349,7 +317,7 @@ h3 {
     font-weight: 400;
     font-family: var(--font-family);
     line-height: 1; 
-   }
+  }
 
   .image-shadow {
     position: relative;
@@ -372,8 +340,7 @@ h3 {
   .forms {
     background-color: #0d0d0e9d;
   }
-
-/** =========================== >>>>> FOOOTER STYLES <<<<< ======================*/
+}
 .social-icon {
   width: 2rem; 
   height: 2rem; 
@@ -396,10 +363,6 @@ input::placeholder {
 .footer .text1-2 {
   transform: translateY(20px);
 }
-/** =========================== >>>>>  ADMIN SECTION  <<<<< ======================*/
- body::-webkit-scrollbar  {
-    display: none !important;
-}
 .admin-btn {
   display: flex;
   align-items: center;
@@ -418,7 +381,6 @@ input::placeholder {
   margin-top: 6rem !important;
 }
 
-/** =========================== >>>>>  MAIN COLORS FOR TABLE  <<<<< ======================*/
 .stat-btn {
   background: linear-gradient(120deg, rgba(78, 70, 229, 0.904) 6%, rgba(90, 22, 216, 0.842) 13%, rgba(30, 5, 122, 0.61) 35%, rgba(10, 9, 9, 0.507) 75%);
   border: 1px solid #482acc;
@@ -459,14 +421,12 @@ input::placeholder {
   transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.75s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-
 .bg-table-head {
   background: var(--gradient-text);
 }
 .with-linear-gradient {
   height: 2px;
 }
-/** =============== >>>>> LENIS SCROLLBAR STYLES  <<<< ===========================*/
 body::-webkit-scrollbar {
   display: none !important;
 }
@@ -486,9 +446,8 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
-/** ============== >>>>> TLWND STYLES <<<<<< ================  */
 .sidebar {
-  @apply remove-scrollbar w-full max-w-72 flex-col overflow-auto bg-black-800 px-7 py-10;
+  @apply w-full max-w-72 flex-col overflow-auto px-7 py-10;
 }
 
 .left-sidebar {
@@ -504,15 +463,13 @@ html.lenis, html.lenis body {
 }
 
 .bg-image {
-  @apply bg-black-900 bg-light-rays bg-cover bg-no-repeat;
+  @apply bg-cover bg-no-repeat;
 }
 
 .header {
-  @apply text-32-bold md:text-36-bold;
 }
 
 .sub-header {
-  @apply text-18-bold md:text-24-bold;
 }
 
 .container {
@@ -520,7 +477,7 @@ html.lenis, html.lenis body {
 }
 
 .sub-container {
-  @apply mx-auto flex size-full flex-col;
+  @apply mx-auto flex size-full max-w-3xl flex-col;
 }
 
 .side-img {
@@ -528,10 +485,9 @@ html.lenis, html.lenis body {
 }
 
 .copyright {
-  @apply text-14-regular text-center text-dark-600 ;
+  @apply text-14-regular text-center text-dark-600;
 }
 
-/*? ==== >> SUCCESS */
 .success-img {
   @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
 }
@@ -540,13 +496,12 @@ html.lenis, html.lenis body {
   @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-4 md:w-fit md:flex-row;
 }
 
-/*? ==== >> ADMIN */
 .admin-header {
-  @apply sticky top-3 z-20 mx-2 flex items-center justify-between ;
+  @apply sticky top-3 z-20 mx-2 flex items-center justify-between;
 }
 
 .admin-main {
-  @apply flex flex-col items-center h-auto space-y-4  pb-12 xl:space-y-4;
+  @apply flex flex-col items-center h-auto space-y-4 pb-12 xl:space-y-4;
 }
 .admin-main {
   margin-top: 7rem !important;
@@ -555,67 +510,57 @@ html.lenis, html.lenis body {
   @apply flex flex-col w-full h-auto justify-between gap-2 sm:flex-row xl:gap-5;
 }
 
-/*? ==== >> FORM */
 .shad-select-content {
-  background-color: rgba(0, 0, 0, 0.8) !important; /* Fundalul general al dropdown-ului, negru transparent */
-  border: 1px solid var(--dark-500); /* Bordura, dacă este necesar */
-  color: white !important; /* Textul implicit al opțiunilor este alb */
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid var(--dark-500);
+  color: white !important;
 }
 
-/* Stiluri pentru elementele individuale din dropdown (SelectItem) */
 .shad-select-content .shad-select-item {
-  color: white; /* Textul opțiunilor în stare normală */
-  background-color: transparent; /* Asigură că nu există un fundal nedorit */
-  /* padding, etc. */
+  color: white;
+  background-color: transparent;
 }
 
-/* Stiluri pentru elementele din dropdown la HOVER sau FOCUSED (SELECTATE VIZUAL) */
-/* ACEASTA ESTE SECȚIUNEA CRUCIALĂ pentru a face fundalul alb și textul negru */
 .shad-select-content .shad-select-item[data-state='active'],
 .shad-select-content .shad-select-item[data-highlighted] {
-  background-color: white !important; /* Fundalul elementului la hover/selectare devine ALB */
-  color: black !important; /* Textul elementului la hover/selectare devine NEGRU, pentru vizibilitate pe fundal alb */
-  /* Poți adăuga și alte stiluri, cum ar fi border-radius sau umbra */
+  background-color: #333 !important;
+  color: white !important;
 }
 
-/* Stilurile pentru checkbox-uri */
 .shad-checkbox[data-state='checked'] {
-  background-color: white !important; /* Fundalul checkbox-ului (pătratul) devine alb */
-  border-color: white !important; /* Bordura checkbox-ului devine albă */
+  background-color: #333 !important;
+  border-color: #333 !important;
 }
 .shad-checkbox[data-state='checked'] svg {
-  color: #000 !important; /* Culoarea iconiței de verificare (bulina) devine neagră */
+  color: white !important;
 }
 
-/* Stiluri pentru grupul radio (male/female) */
 .radio-group {
   @apply flex h-full items-center gap-2 rounded-md border border-dark-500 bg-dark-400 p-3;
 }
 .radio-group-item[data-state='checked'] {
-  background-color: white !important; /* Fundalul elementului selectat devine alb */
-  border-color: white !important; /* Bordura elementului selectat devine albă */
+  background-color: #333 !important;
+  border-color: #333 !important;
 }
 .radio-group-item[data-state='checked']::before,
 .radio-group-item[data-state='checked'] .radio-indicator {
-  background-color: black !important; /* Culoarea bulinei devine neagră */
+  background-color: white !important;
 }
 
 .checkbox-label {
   @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
 }
 
-/*? ==== >> File Upload */
 .file-upload {
-  @apply text-12-regular flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+  @apply text-12-regular flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
 }
 
 .file-upload_label {
   @apply flex flex-col justify-center gap-2 text-center text-dark-600;
 }
 
-/*? ==== >> Stat Card */
 .stat-card {
-  @apply flex flex-1 flex-col gap-3 relative rounded-md p-4 ;
+  @apply flex flex-1 flex-col gap-3 relative rounded-md p-4;
 }
 .stat-card,
 .charts,
@@ -623,21 +568,18 @@ html.lenis, html.lenis body {
   backdrop-filter: blur(30px);
 }
 
-/*? ==== >> Status Badge */
 .status-badge {
   @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
 }
 
-/*?  ==== >> DataTable */
 .data-table {
   @apply z-10 w-full overflow-hidden rounded-2xl border;
 }
 
 .table-pagination {
-  @apply flex w-full items-center justify-between  border-t border-neutral-500 space-x-2 p-4;
+  @apply flex w-full items-center justify-between border-t border-neutral-500 space-x-2 p-4;
 }
 
-/*? ===== >> ALIGNMENTS */
 .flex-center {
   @apply flex items-center justify-center;
 }
@@ -646,7 +588,6 @@ html.lenis, html.lenis body {
   @apply flex items-center justify-between;
 }
 
-/*? ==== >> TYPOGRAPHY */
 .text-36-bold {
   @apply text-[36px] leading-[40px] font-bold;
 }
@@ -687,16 +628,12 @@ html.lenis, html.lenis body {
   @apply text-[12px] leading-[16px] font-semibold;
 }
 
-/*? ==== >>=  SHADCN OVERRIDES */
-
-
 .shad-danger-btn {
   @apply bg-red-700 text-white !important;
 }
 
-
 .shad-gray-btn {
-  @apply  cursor-pointer text-white !important;
+  @apply cursor-pointer text-white !important;
 }
 
 .shad-input-label {
@@ -704,15 +641,86 @@ html.lenis, html.lenis body {
 }
 
 .shad-input {
-  @apply bg-black/80 rounded-md placeholder:text-dark-600 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  height: 2.75rem !important;
+  color: white !important;
+  border: 1px solid var(--dark-500) !important;
+  padding: 0.5rem 0.75rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.shad-input:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.shad-input:focus,
+.shad-input:active,
+.shad-input:focus-visible {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #482acc !important;
+}
+.shad-input::placeholder {
+  color: #a0a0a0 !important;
 }
 
 .shad-input-icon {
-  @apply  placeholder:text-dark-600 border_unv h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--dark-500) !important;
+  height: 2.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.shad-input-icon:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.shad-input-icon:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #482acc !important;
+}
+.shad-input-icon input {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  flex-grow: 1;
+  color: white !important;
+  padding: 0 0.75rem !important;
+}
+.shad-input-icon input:not(:placeholder-shown) {
+  background-color: transparent !important;
+}
+.shad-input-icon input::placeholder {
+  color: #a0a0a0 !important;
 }
 
 .shad-textArea {
-  @apply  bg-transparent placeholder:text-dark-600 border_unv focus-visible:ring-0 focus-visible:ring-offset-0 rounded-md !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--dark-500) !important;
+  color: white !important;
+  padding: 0.5rem 0.75rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.shad-textArea:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.shad-textArea:focus,
+.shad-textArea:active,
+.shad-textArea:focus-visible {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #482acc !important;
+}
+.shad-textArea::placeholder {
+  color: #a0a0a0 !important;
 }
 
 .shad-combobox-item {
@@ -724,28 +732,41 @@ html.lenis, html.lenis body {
 }
 
 .shad-select-trigger {
-  @apply bg-transparent  placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--dark-500) !important;
+  height: 2.75rem !important;
+  color: white !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
-
-.shad-select-content {
-  @apply bg-black/80 border border-dark-500 !important;
+.shad-select-trigger:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.shad-select-trigger:focus,
+.shad-select-trigger:active,
+.shad-select-trigger:focus-visible {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #482acc !important;
+}
+.shad-select-trigger::placeholder {
+  color: #a0a0a0 !important;
 }
 
 .shad-checkbox[data-state='checked'] {
-  background-color: white !important; /* Fundalul checkbox-ului (pătratul) devine alb */
-  border-color: white !important; /* Bordura checkbox-ului devine albă */
+  background-color: #333 !important;
+  border-color: #333 !important;
 }
-/* Bulina (indicatorul de verificare) din interiorul checkbox-ului */
 .shad-checkbox[data-state='checked'] svg {
-  color: #000 !important; /* Culoarea iconiței de verificare (bulina) devine neagră pentru a fi vizibilă pe fundal alb */
+  color: white !important;
 }
-
-
 
 .shad-dialog {
   @apply bg-black/90 border-dark-500 p-6 w-[90vw] max-w-[600px] !important;
+  z-index: 1000 !important;
 }
-
 
 @media (min-width: 640px) {
   .calendar-wrapper {
@@ -778,7 +799,7 @@ html.lenis, html.lenis body {
   @apply text-light-200 hover:bg-transparent !important;
 }
 .border {
-  @apply  border-neutral-800 ;
+  @apply border-neutral-800;
 }
 .shad-table-row {
   @apply text-light-200 !important;
@@ -795,31 +816,156 @@ html.lenis, html.lenis body {
   @apply text-36-bold justify-center flex border border-dark-500 rounded-lg size-16 gap-4 !important;
 }
 
+.InputOTPSlot {
+  @apply flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md !important;
+  background-color: transparent !important; /* Ensures no black background */
+  backdrop-filter: none !important; /* Removes any blur causing darkening */
+  box-shadow: none !important; /* Removes any shadow effect */
+  color: white !important; /* Ensures text visibility */
+}
+
+.InputOTPGroup {
+  @apply flex items-center gap-2 has-[:disabled]:opacity-50 bg-transparent !important;
+}
+
 .shad-alert-dialog {
   @apply space-y-4 bg-dark-400 border-dark-500 outline-none !important;
+  /* Keep or adjust the dialog background as needed */
 }
 
 .shad-sheet-content button {
   @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
 }
 
-/*? ==== >>  REACT PHONE NUMBER INPUT OVERRIDES */
 .input-phone {
-  @apply mt-2 h-11 rounded-full px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--dark-500) !important;
+  height: 2.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 0.75rem;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.input-phone:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.input-phone:focus-within {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-color: #482acc !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.input-phone input {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: white !important;
+  padding: 0 0.5rem !important;
+  flex-grow: 1;
+}
+.input-phone input:not(:placeholder-shown) {
+  background-color: transparent !important;
+}
+.input-phone input::placeholder {
+  color: #a0a0a0 !important;
 }
 
-/*? ==== >>  REACT DATE PICKER OVERRIDES */
+/* New rules for react-phone-number-input */
+.PhoneInput {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--dark-500) !important;
+  height: 2.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 0.75rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.PhoneInput:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.PhoneInput:focus-within {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-color: #482acc !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.PhoneInput input {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: white !important;
+  padding: 0 !important;
+  flex-grow: 1;
+}
+.PhoneInput input:not(:placeholder-shown) {
+  background-color: transparent !important;
+}
+.PhoneInput input::placeholder {
+  color: #a0a0a0 !important;
+}
+.PhoneInput .PhoneInputCountry {
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+.PhoneInput .PhoneInputCountrySelect {
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+.PhoneInput .PhoneInputCountrySelectArrow {
+  color: white !important;
+}
+
+/* Existing styles remain, add or update these */
 .date-picker {
-  @apply overflow-hidden border-transparent w-full placeholder:text-dark-600  h-11 text-14-medium rounded-full px-3 outline-none !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--dark-500) !important;
+  height: 2.75rem !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 0.75rem !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
+.date-picker:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
-
-/*? ==== >>  REACT-DATEPICKER OVERRIDES */
-.react-datepicker-wrapper.date-picker {
-  display: flex;
-  align-items: center;
+.date-picker:focus-within {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-color: #482acc !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
-
+.react-datepicker__input-container {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+.react-datepicker__input-container input {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0.5rem !important;
+  width: 100%;
+  color: white !important;
+  padding: 0 !important;
+}
+.react-datepicker__input-container input:not(:placeholder-shown) {
+  background-color: transparent !important;
+}
+.react-datepicker__input-container input::placeholder {
+  color: #a0a0a0 !important;
+}
 .react-datepicker,
 .react-datepicker__time,
 .react-datepicker__header,
@@ -831,7 +977,6 @@ html.lenis, html.lenis body {
   border-color: #363a3d !important;
   color: #abb8c4 !important;
 }
-
 .react-datepicker__current-month,
 .react-datepicker__day-name,
 .react-datepicker-time__header {
@@ -860,12 +1005,6 @@ html.lenis, html.lenis body {
   background-color: #363a3d !important;
 }
 
-.react-datepicker__input-container input {
-  background-color: #1a1d21 !important;
-  width: 100%;
-  outline: none;
-}
-
 .react-datepicker__day--selected {
   background-color: #482acc !important;
   color: #ffffff !important;
@@ -883,19 +1022,6 @@ html.lenis, html.lenis body {
 .react-datepicker__time-list-item {
   display: flex !important;
   align-items: center !important;
-}
-
-/*? ==== >>=  REACT PHONE NUMBER INPUT OVERRIDES */
-.PhoneInputInput {
-  outline: none;
-  margin-left: 4px;
-  background: #1a1d21;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.PhoneInputInput::placeholder {
-  color: #1a1d21;
 }
 
 @media screen and (max-width:990px) {
@@ -976,22 +1102,94 @@ html.lenis, html.lenis body {
   }
 }
 
+/* Add or update these rules in globals.css */
+
+/* Target the PhoneInput wrapper and its children */
+.PhoneInput {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--dark-500) !important;
+  height: 2.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 0.75rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+  overflow: hidden !important; /* Prevent child elements from spilling out */
+}
+.PhoneInput:not(:placeholder-shown) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.PhoneInput:focus-within {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-color: #482acc !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Target the internal input specifically */
+.PhoneInput input {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: white !important;
+  padding: 0 !important;
+  flex-grow: 1;
+  height: 100% !important; /* Ensure it fills the container */
+}
+.PhoneInput input:not(:placeholder-shown) {
+  background-color: transparent !important;
+}
+.PhoneInput input::placeholder {
+  color: #a0a0a0 !important;
+}
+
+/* Target country selector and arrow */
+.PhoneInput .PhoneInputCountry {
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+.PhoneInput .PhoneInputCountrySelect {
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+.PhoneInput .PhoneInputCountrySelectArrow {
+  color: white !important;
+}
+
+/* Force override for any nested inputs or divs */
+.PhoneInput * {
+  background-color: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+
+/* Ensure the entire component respects the dark theme */
+.PhoneInput .PhoneInputInput {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: white !important;
+  padding: 0 !important;
+}
+
 @layer base {
   * {
     @apply border-border;
+    outline: none !important;
+    box-shadow: none !important;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
-
-/*---break---  */
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+  input:not(:placeholder-shown) {
   }
-  body {
-    @apply bg-background text-foreground;
+  input:focus:not(:placeholder-shown),
+  input:active:not(:placeholder-shown),
+  input:focus-visible:not(:placeholder-shown) {
   }
 }
