@@ -12,9 +12,7 @@
 }
 
 
-.testimonial-card {
-  @apply p-6 w-full;
-}
+
 .testimonial_header .p-desc p {
   transform: translateY(70%) !important;
 }

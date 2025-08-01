@@ -12,6 +12,9 @@ import Testimonials from '@/components/landing_page/Testimonials';
 import Footer from '@/components/landing_page/Footer/Footer';
 import LOADER from '@/components/landing_page/LOADER';
 
+
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LandingPage({

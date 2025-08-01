@@ -11,7 +11,7 @@
 .cards-container {
     position: relative;
     width: 90%;
-    height: 85%;
+    height: 85vh;
     overflow: hidden;
 }
 
@@ -22,7 +22,9 @@
     overflow: hidden;
     border-radius: 0.5rem;
 }
-
+.img {
+  object-fit: cover;
+}
 .card::before {
   content: "";
   border-radius: 0.5rem;

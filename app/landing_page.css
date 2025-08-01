@@ -121,19 +121,15 @@ a {
 }
 .testimonial-card {
   box-shadow: 0 9px 15px rgba(88, 103, 112, 0.2) !important;
-  /* box-shadow: 0 6px 7px rgba(37, 10, 134, 0.226); */
 }
-.testimonial-card {
-  @apply p-10 border border-solid border-neutral-500 rounded-3xl  w-full;
-}
+
 
 .border-el {
   @apply border border-solid border-neutral-500;
 }
 
-.starlight__features-container{
-  @apply  border border-solid border-neutral-500 rounded-3xl w-full;
-}
+
+
 .faq-item  {
   @apply border border-solid border-neutral-500 ;
 }

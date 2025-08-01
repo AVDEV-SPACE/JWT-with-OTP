@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useCallback, useState, useMemo } from 'react'
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FaCircleUser } from "react-icons/fa6";
-import '../styles/testimonials.css';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);

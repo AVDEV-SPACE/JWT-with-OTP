@@ -46,6 +46,10 @@ h3 {
   font-size: clamp(55px, 4vw, 70px) !important;
   clip-path: polygon(0 3%, 100% 0, 100% 97%, 0% 100%) !important;
 }
+
+.testimonial-card {
+  @apply p-6 w-full;
+}
 .faq-text p, .starlight__features p, .testimonial-card p {
   line-height: 1.25; 
   margin: 0;

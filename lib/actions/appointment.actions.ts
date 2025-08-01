@@ -8,7 +8,7 @@ import {
     PATIENT_COLLECTION_ID,
     messaging,
 } from "../appwrite.config";
-import { formatDateTime } from "../utils"; // Eliminăm parseStringify
+import { formatDateTime } from "../utils"; 
 import { Appointment } from "@/types/appwrite.types";
 import { revalidatePath } from "next/cache";
 
@@ -22,6 +22,27 @@ export const createAppointment = async (
             ID.unique(),
             appointment
         );
+     //? CHECKING IF APP. WAS SUCCSFLY CREATE
+        if (newAppointment) {
+            // -- MSSG FORMAT -- 
+            const smsMessage = `
+                Hi, it's Scaleup.
+                Your appointment has been scheduled for ${formatDateTime(newAppointment.schedule).dateTime} with Dr. ${newAppointment.primaryPhysician}.
+            `;
+
+            // CHECKING THE AVAILABLE CREDT 2 SEND THE MESSAGE
+            const availableCreditRON = await getAvailableCreditRON();
+            const maxSMSCount = Math.floor(availableCreditRON / SMS_PRICE_RON);
+
+            if(maxSMSCount > 0 ) {
+                // ! -- CAALING THE FUNC WHICCK SENDS THE SMS 
+                await sendSMSNotification(appointment.userId, smsMessage)
+            }   else {
+               console.warn("Insufficient credit to send SMS notification.");
+            } 
+
+        }
+
         return newAppointment; 
     } catch (error) {
         console.log(error);
@@ -36,6 +57,7 @@ export const getAppointment = async (appointmentId: string) => {
             APPOINTMENT_COLLECTION_ID!,
             appointmentId
         );
+        
         return appointment; 
     } catch (error) {
         console.error(

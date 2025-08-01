@@ -105,7 +105,7 @@ const RegisterForm = ({ searchParams }: { searchParams: { admin?: string } }) =>
                   />
                 </Link>
                 <h1 className="header">Your information is registered</h1>
-                <p className="text-dark-700 -mt-5">now fill in your details bellow</p>
+                <p className="text-dark-700 -mt-8">now fill in your details bellow</p>
               </section>
 
               <CustomFormField

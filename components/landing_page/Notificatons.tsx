@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import './Cases.css';
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);

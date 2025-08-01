@@ -83,6 +83,7 @@ export const AppointmentForm = ({
         fetchBookedAppointments();
     }, [selectedDoctor]);
 
+    
     async function onSubmit(values: z.infer<typeof AppointmentFormValidation>) {
         setIsLoading(true);
 
@@ -108,7 +109,7 @@ export const AppointmentForm = ({
                     schedule: new Date(values.schedule),
                     reason: values.reason!,
                     note: values.note,
-                    status: status as Status,
+                    status: "scheduled" as Status,
                 };
 
                 const appointment = await createAppointment(appointmentData);
